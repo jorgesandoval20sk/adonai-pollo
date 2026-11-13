@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';" />
+  <title>ADONAI - Tienda y Venta de Pollo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold-light: #FFD447;
+      --gold-main: #F4A917;
+      --gold-dark: #B57305;
+      --red-main: #B82924;
+      --red-dark: #7D1714;
+      --navy-main: #1C355E;
+      --navy-dark: #10213D;
+      --cream-bg: #FCF6E8;
+      --cream-card: #FFFDF8;
+      --rope-brown: #8B4E1B;
+      --rope-tan: #C97F36;
+      --green-wa: #1B8A3E;
+      --green-wa-dark: #12612B;
+      --text-main: #1E1810;
+      --text-muted: #5C4E3C;
+      --base-font: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      font-size: var(--base-font);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--cream-bg);
+      background-image: radial-gradient(#E8D8B5 1.2px, transparent 1.2px);
+      background-size: 22px 22px;
+      color: var(--text-main);
+      padding-bottom: 110px;
+      line-height: 1.45;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Fraunces', Georgia, serif;
+    }
+
+    /* Borde de cuerda trenzada fiel al logo ADONAI */
+    .rope-border {
+      border: 6px solid var(--rope-brown);
+      box-shadow:
+        0 0 0 3px var(--gold-dark),
+        0 10px 25px rgba(30, 24, 16, 0.16),
+        inset 0 0 0 3px var(--rope-tan);
+    }
+
+    /* Botones con relieve táctil para adultos y adultos mayores */
+    .btn-3d {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: 16px;
+      border: 2px solid rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      text-decoration: none;
+      line-height: 1.2;
+      min-height: 52px;
+    }
+
+    .btn-3d:active:not(:disabled) {
+      transform: translateY(3px);
+    }
+
+    .btn-3d:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      filter: grayscale(0.4);
+    }
+
+    .btn-gold {
+      background: linear-gradient(180deg, var(--gold-light), var(--gold-main));
+      color: var(--navy-dark);
+      box-shadow: 0 5px 0 var(--gold-dark);
+    }
+
+    .btn-red {
+      background: linear-gradient(180deg, #D43630, var(--red-main));
+      color: #FFFFFF;
+      box-shadow: 0 5px 0 var(--red-dark);
+    }
+
+    .btn-navy {
+      background: linear-gradient(180deg, #284980, var(--navy-main));
+      color: #FFFFFF;
+      box-shadow: 0 5px 0 var(--navy-dark);
+    }
+
+    .btn-wa {
+      background: linear-gradient(180deg, #25A84E, var(--green-wa));
+      color: #FFFFFF;
+      box-shadow: 0 5px 0 var(--green-wa-dark);
+    }
+
+    .btn-light {
+      background: #FFFFFF;
+      color: var(--navy-dark);
+      border: 2px solid #D5C5A3;
+      box-shadow: 0 4px 0 #C5B28B;
+    }
+
+    .btn-sm {
+      padding: 0.55rem 0.9rem;
+      font-size: 0.9rem;
+      min-height: 44px;
+      border-radius: 12px;
+    }
+
+    /* Cabecera y Emblema Redondo */
+    .top-bar {
+      background: var(--navy-main);
+      color: #FFF;
+      padding: 0.75rem 1rem;
+      border-bottom: 4px solid var(--gold-main);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
+    .top-bar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .hero-section {
+      max-width: 1120px;
+      margin: 1.25rem auto 0;
+      padding: 0 1rem;
+    }
+
+    .emblem-banner {
+      background: radial-gradient(circle at top, #FFE27A 0%, var(--gold-main) 65%, #E08F0B 100%);
+      border-radius: 28px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emblem-title {
+      font-size: clamp(2.3rem, 6vw, 3.6rem);
+      font-weight: 900;
+      color: var(--red-main);
+      margin: 0;
+      letter-spacing: 0.04em;
+      text-shadow:
+        -2px -2px 0 #FFF7E0,
+         2px -2px 0 #FFF7E0,
+        -2px  2px 0 #FFF7E0,
+         2px  2px 0 #FFF7E0,
+         0px  5px 0 var(--navy-dark);
+      line-height: 1.05;
+    }
+
+    .ribbon-subtitle {
+      display: inline-block;
+      background: var(--navy-main);
+      color: #FFF8E6;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.45rem 1.5rem;
+      border-radius: 999px;
+      border: 3px solid var(--gold-light);
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    .user-status-card {
+      background: var(--cream-card);
+      border: 3px solid var(--navy-main);
+      border-radius: 20px;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    /* Navegación Principal en Pasos Gigantes */
+    .nav-steps {
+      max-width: 1120px;
+      margin: 1.25rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .nav-tab {
+      background: var(--cream-card);
+      border: 3px solid #D3C19C;
+      border-radius: 18px;
+      padding: 1rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 0 #C4B089;
+      transition: all 0.15s ease;
+      min-height: 62px;
+    }
+
+    .nav-tab.active {
+      background: var(--navy-main);
+      color: #FFFFFF;
+      border-color: var(--gold-main);
+      box-shadow: 0 5px 0 var(--navy-dark);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Buscador y Secciones */
+    .search-box-wrap {
+      background: var(--cream-card);
+      border: 3px solid var(--rope-brown);
+      border-radius: 20px;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .search-input-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .big-input, .big-select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1.05rem;
+      font-family: inherit;
+      font-weight: 600;
+      border: 3px solid #C6B28B;
+      border-radius: 14px;
+      background: #FFFFFF;
+      color: var(--text-main);
+      min-height: 54px;
+    }
+
+    .big-input:focus, .big-select:focus {
+      outline: none;
+      border-color: var(--navy-main);
+      box-shadow: 0 0 0 4px rgba(28, 53, 94, 0.18);
+    }
+
+    .sections-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+    }
+
+    .section-pill {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 2px solid var(--navy-main);
+      background: #FFF;
+      color: var(--navy-main);
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      min-height: 46px;
+    }
+
+    .section-pill.active {
+      background: var(--red-main);
+      border-color: var(--red-dark);
+      color: #FFF;
+    }
+
+    /* Cuadrícula de Productos */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .product-card {
+      background: var(--cream-card);
+      border: 3px solid #D9C69E;
+      border-radius: 22px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 14px rgba(30,24,16,0.07);
+      position: relative;
+    }
+
+    .badge-section {
+      display: inline-block;
+      background: #EFE4CA;
+      color: var(--rope-brown);
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-pts {
+      display: inline-block;
+      background: #FFF3C4;
+      color: #8A5300;
+      border: 1.5px solid var(--gold-main);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .price-tag {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--red-main);
+      margin: 0.4rem 0;
+    }
+
+    /* Premio Grande Destacado con Brillitos */
+    @keyframes shimmerGlow {
+      0%, 100% {
+        box-shadow: 0 0 18px rgba(244, 169, 23, 0.65), 0 0 36px rgba(255, 212, 71, 0.45);
+        border-color: #FFD447;
+      }
+      50% {
+        box-shadow: 0 0 32px rgba(255, 212, 71, 0.95), 0 0 55px rgba(184, 41, 36, 0.45);
+        border-color: #FFF5B8;
+      }
+    }
+
+    @keyframes sparkleFloat {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+      50% { transform: scale(1.28) rotate(15deg); opacity: 1; }
+    }
+
+    .grand-prize-card {
+      background: linear-gradient(135deg, #1C355E 0%, #2C4F8A 50%, #10213D 100%);
+      color: #FFFDF8;
+      border: 5px solid var(--gold-light);
+      border-radius: 26px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      animation: shimmerGlow 2.4s infinite ease-in-out;
+    }
+
+    .sparkle-icon {
+      display: inline-block;
+      animation: sparkleFloat 1.8s infinite ease-in-out;
+    }
+
+    .grand-prize-card::before {
+      content: "✨ ⭐ ✨";
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 1.4rem;
+      animation: sparkleFloat 2s infinite ease-in-out;
+    }
+
+    .stock-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .stock-ok {
+      background: #DCFCE7;
+      color: #14532D;
+      border: 2px solid #22C55E;
+    }
+
+    .stock-out {
+      background: #FEE2E2;
+      color: #7F1D1D;
+      border: 2px solid #EF4444;
+    }
+
+    /* Modales */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 33, 61, 0.78);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 100;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--cream-card);
+      border: 5px solid var(--gold-main);
+      border-radius: 26px;
+      width: 100%;
+      max-width: 540px;
+      padding: 1.5rem;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .modal-close-x {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid var(--red-dark);
+      background: var(--red-main);
+      color: #FFFFFF;
+      font-size: 1.4rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 0 var(--red-dark);
+      z-index: 5;
+    }
+
+    /* Panel Admin */
+    .admin-panel-box {
+      background: var(--cream-card);
+      border: 3px solid var(--navy-main);
+      border-radius: 22px;
+      padding: 1.35rem;
+      margin-bottom: 1.35rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+    }
+
+    .admin-subtabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      color: var(--navy-dark);
+      font-size: 0.95rem;
+    }
+
+    .list-row {
+      background: #FFFFFF;
+      border: 2px solid #DFCFAF;
+      border-radius: 16px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    /* Barra Inferior Fija del Pedido */
+    .bottom-cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--navy-dark);
+      color: #FFF;
+      border-top: 4px solid var(--gold-main);
+      padding: 0.75rem 1rem;
+      z-index: 45;
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.28);
+    }
+
+    .bottom-cart-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Toast de Notificación */
+    .toast {
+      position: fixed;
+      top: 84px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--navy-dark);
+      color: #FFF;
+      border: 3px solid var(--gold-light);
+      padding: 0.85rem 1.4rem;
+      border-radius: 16px;
+      font-weight: 800;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 92vw;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .hidden { display: none !important; }
+
+    .badge-status { display:inline-block; padding:0.15rem 0.7rem; border-radius:999px; font-weight:800; font-size:0.85rem; border:2px solid; }
+    .st-pending { background:#FFF3C4; color:#7A5200; border-color:#E0A800; }
+    .st-delivered { background:#DDF5E3; color:#14532D; border-color:#1B8A3E; }
+    .st-cancelled { background:#FBE0DE; color:#7D1714; border-color:#B82924; }
+    .order-card { background:#FFF; border:3px solid #D3C19C; border-radius:18px; padding:1rem; margin-bottom:0.9rem; }
+    .order-card.pending { border-color:#E0A800; box-shadow:0 0 0 3px #FFF3C4; }
+    .count-pill { background:var(--red-main); color:#FFF; border-radius:999px; padding:0 0.5rem; margin-left:0.35rem; font-size:0.85rem; }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div style="display:flex; align-items:center; gap:0.65rem;">
+        <span style="font-size:1.7rem;">🐔</span>
+        <div>
+          <strong class="brand-font" style="font-size:1.25rem; color:var(--gold-light); letter-spacing:0.04em;">ADONAI</strong>
+          <div style="font-size:0.8rem; color:#E2E8F0;">Pollo Fresco y Tienda de Barrio</div>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+        <button id="btnOpenGrandPrizeBanner" class="btn-3d btn-gold btn-sm" onclick="openGrandPrizeModal()">
+          <span class="sparkle-icon">✨</span> Ver Premio Grande
+        </button>
+        <button id="btnAuthAction" class="btn-3d btn-light btn-sm" onclick="openLoginModal()">
+          📱 Entrar con Teléfono
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NOTIFICACIÓN FLOTANTE -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ENCABEZADO CREATIVO ESTILO EMBLEMA ADONAI -->
+  <section class="hero-section">
+    <div class="emblem-banner rope-border">
+      <div style="font-size:1.5rem; margin-bottom:0.2rem;">🌽 🐓 🌶️</div>
+      <h1 class="emblem-title">ADONAI</h1>
+      <div class="ribbon-subtitle">TIENDA Y VENTA DE POLLO</div>
+      <p style="margin:0.85rem auto 0; max-width:650px; font-weight:700; color:var(--navy-dark); font-size:1.05rem;">
+        ¡Pollo fresco del día, preparados, embutidos, lácteos y premios por tus compras!
+      </p>
+    </div>
+
+    <!-- TARJETA DE ESTADO DEL CLIENTE -->
+    <div class="user-status-card" id="userStatusBar">
+      <div>
+        <div id="welcomeTitle" style="font-weight:900; font-size:1.15rem; color:var(--navy-dark);">
+          👋 ¡Bienvenido vecino! Estás viendo el catálogo como visitante.
+        </div>
+        <div id="welcomeSubtitle" style="color:var(--text-muted); font-weight:600; margin-top:0.2rem;">
+          Ingresa con tu número de teléfono para acumular puntos y canjear premios gratis.
+        </div>
+      </div>
+      <div id="userPointsBadge" class="hidden" style="background:var(--gold-light); border:3px solid var(--gold-dark); padding:0.6rem 1.1rem; border-radius:16px; text-align:center;">
+        <div style="font-size:0.8rem; font-weight:800; color:var(--navy-dark); text-transform:uppercase;">Tus Puntos</div>
+        <div id="userPointsValue" style="font-size:1.6rem; font-weight:900; color:var(--red-main);">0 pts</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVEGACIÓN EN PASOS GRANDES -->
+  <nav class="nav-steps">
+    <button class="nav-tab active" id="tabMenu" onclick="switchMainView('menu')">
+      🍗 1. Pollo y Tienda
+    </button>
+    <button class="nav-tab" id="tabRewards" onclick="switchMainView('rewards')">
+      🎁 2. Canjear Puntos
+    </button>
+    <button class="nav-tab hidden" id="tabAdmin" onclick="switchMainView('admin')">
+      ⚙️ 3. Panel Dueño (Admin)
+    </button>
+  </nav>
+
+  <!-- VISTA 1: CATÁLOGO DE PRODUCTOS CON BUSCADOR Y SECCIONES -->
+  <main id="viewMenu" class="container">
+    <div class="search-box-wrap">
+      <label for="searchProductInput" class="form-label">🔍 Buscar producto por nombre o sección:</label>
+      <div class="search-input-row">
+        <input
+          type="search"
+          id="searchProductInput"
+          class="big-input"
+          style="flex:1; min-width:220px;"
+          placeholder="Ej. Pechuga, Pollo Amarillo, Crema, Alitas..."
+          oninput="renderProducts()"
+        />
+        <button class="btn-3d btn-light" onclick="clearSearch()">Limpiar</button>
+      </div>
+
+      <div style="margin-top:0.9rem; font-weight:800; color:var(--navy-dark); font-size:0.95rem;">
+        📂 Elige una sección:
+      </div>
+      <div class="sections-pills" id="sectionsPillsContainer"></div>
+    </div>
+
+    <div id="productsGrid" class="products-grid"></div>
+  </main>
+
+  <!-- VISTA 2: TIENDITA DE PUNTOS Y PREMIO GRANDE DESTACADO -->
+  <section id="viewRewards" class="container hidden">
+    <!-- PREMIO GRANDE DESTACADO CON BRILLITOS -->
+    <div id="grandPrizeHighlightBox" class="grand-prize-card"></div>
+
+    <div style="background:var(--cream-card); border:3px solid var(--rope-brown); border-radius:20px; padding:1.15rem; margin-bottom:1.25rem;">
+      <h2 style="margin:0 0 0.35rem; color:var(--navy-dark);">🎁 Premios de la Tiendita ADONAI</h2>
+      <p style="margin:0; font-weight:600; color:var(--text-muted);">
+        Canjea tus puntos por ricitos, aguas, productos de tienda o pollo. Si un premio ya fue canjeado o se agotó, aparecerá marcado para todos.
+      </p>
+    </div>
+
+    <div id="rewardsGrid" class="products-grid"></div>
+  </section>
+
+  <!-- VISTA 3: PANEL DE ADMINISTRACIÓN CON SEGURIDAD -->
+  <section id="viewAdmin" class="container hidden">
+    <div class="admin-panel-box">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+        <div>
+          <h2 style="margin:0; color:var(--navy-dark);">⚙️ Administración Segura ADONAI</h2>
+          <p style="margin:0.25rem 0 0; color:var(--text-muted); font-weight:600;">
+            Gestiona pedidos, productos, clientes, puntos, premios, administradores y tamaño de letra.
+          </p>
+        </div>
+        <button class="btn-3d btn-red btn-sm" onclick="openChangePassModal(false)">🔐 Cambiar mi contraseña</button>
+      </div>
+
+      <!-- CONTROL DE TAMAÑO DE LETRA -->
+      <div style="background:#FFF6DF; border:2px solid var(--gold-dark); border-radius:16px; padding:1rem; margin-bottom:1.25rem;">
+        <div class="form-label">🔠 Tamaño de Letra para Toda la Página:</div>
+        <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+          <button class="btn-3d btn-light btn-sm" onclick="setGlobalFontSize('16px')">Normal (16px)</button>
+          <button class="btn-3d btn-light btn-sm" onclick="setGlobalFontSize('18px')">Grande (18px)</button>
+          <button class="btn-3d btn-light btn-sm" onclick="setGlobalFontSize('21px')">Muy Grande (21px)</button>
+          <button class="btn-3d btn-light btn-sm" onclick="setGlobalFontSize('24px')">Extra Gigante (24px)</button>
+        </div>
+      </div>
+
+      <!-- SUB-PESTAÑAS ADMIN -->
+      <div id="adminPassWarn" class="hidden" style="background:#FBE0DE; border:2px solid var(--red-main); border-radius:14px; padding:0.8rem 1rem; margin-bottom:1rem; font-weight:800; color:var(--red-dark);">
+        ⚠️ Estás usando una contraseña temporal. Cámbiala ahora con el botón "Cambiar mi contraseña".
+      </div>
+
+      <div class="admin-subtabs">
+        <button id="btnSubOrders" class="btn-3d btn-gold btn-sm" onclick="switchAdminSubtab('orders')">📦 Pedidos</button>
+        <button class="btn-3d btn-navy btn-sm" onclick="switchAdminSubtab('products')">🍗 Productos y Secciones</button>
+        <button class="btn-3d btn-navy btn-sm" onclick="switchAdminSubtab('users')">👥 Clientes y Puntos</button>
+        <button class="btn-3d btn-navy btn-sm" onclick="switchAdminSubtab('rewards')">🎁 Premios y Premio Grande</button>
+        <button class="btn-3d btn-navy btn-sm" onclick="switchAdminSubtab('logs')">📋 Historial de Canjes</button>
+        <button class="btn-3d btn-navy btn-sm" onclick="switchAdminSubtab('admins')">🛡️ Administradores</button>
+      </div>
+
+      <!-- SUBTAB 0: PEDIDOS -->
+      <div id="adminSubOrders">
+        <div style="background:#FFF6DF; border:2px solid var(--gold-dark); border-radius:16px; padding:1rem; margin-bottom:1.1rem;">
+          <h3 style="margin:0 0 0.4rem; color:var(--navy-dark);">📥 Registrar un pedido recibido por WhatsApp</h3>
+          <p style="margin:0 0 0.6rem; font-size:0.92rem; color:var(--text-muted); font-weight:600;">
+            Si el pedido llegó a tu WhatsApp desde el celular del cliente, copia el mensaje completo (incluye una línea final que empieza con [[ADONAI:...]]), pégalo aquí y quedará como <b>pendiente</b>.
+          </p>
+          <textarea id="importOrderText" class="big-input" rows="4" style="width:100%; resize:vertical;" placeholder="Pega aquí el mensaje de WhatsApp"></textarea>
+          <button class="btn-3d btn-gold" style="margin-top:0.6rem;" onclick="importOrderFromText()">📥 Registrar pedido pendiente</button>
+        </div>
+        <div id="orderFilterBar" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.9rem;"></div>
+        <div id="adminOrdersList"></div>
+      </div>
+
+      <!-- SUBTAB E: ADMINISTRADORES -->
+      <div id="adminSubAdmins" class="hidden">
+        <div style="background:#F7EFE0; border:2px solid #D3C19C; border-radius:18px; padding:1rem; margin-bottom:1.25rem;">
+          <h3 style="margin:0 0 0.5rem; color:var(--navy-dark);">➕ Agregar otro Administrador</h3>
+          <p style="margin:0 0 0.75rem; font-size:0.92rem; color:var(--text-muted); font-weight:600;">
+            Tendrá los mismos permisos que tú. Al entrar por primera vez deberá cambiar la contraseña temporal que le des.
+          </p>
+          <div class="form-grid">
+            <div><label class="form-label">Usuario *</label><input type="text" id="newAdminUser" class="big-input" placeholder="ej. maria" autocomplete="off" /></div>
+            <div><label class="form-label">Nombre *</label><input type="text" id="newAdminName" class="big-input" placeholder="ej. María López" /></div>
+            <div><label class="form-label">Contraseña temporal *</label><input type="text" id="newAdminPass" class="big-input" placeholder="mínimo 6 caracteres" autocomplete="off" /></div>
+          </div>
+          <button class="btn-3d btn-gold" onclick="addAdmin()">🛡️ Crear Administrador</button>
+        </div>
+        <h3 style="color:var(--navy-dark);">🛡️ Administradores con acceso</h3>
+        <div id="adminAdminsList"></div>
+      </div>
+
+      <!-- SUBTAB A: PRODUCTOS Y SECCIONES -->
+      <div id="adminSubProducts" class="hidden">
+        <div style="background:#F7EFE0; border:2px solid #D3C19C; border-radius:18px; padding:1rem; margin-bottom:1.25rem;">
+          <h3 style="margin:0 0 0.75rem; color:var(--navy-dark);">📂 Agregar Nueva Sección</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:0.65rem;">
+            <input type="text" id="newSectionName" class="big-input" style="flex:1; min-width:210px;" placeholder="Nombre de sección (ej. Bebidas, Abarrotes)" />
+            <button class="btn-3d btn-gold" onclick="addSection()">+ Crear Sección</button>
+          </div>
+          <div id="adminSectionsList" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.85rem;"></div>
+        </div>
+
+        <div style="background:#F7EFE0; border:2px solid #D3C19C; border-radius:18px; padding:1rem; margin-bottom:1.25rem;">
+          <h3 style="margin:0 0 0.75rem; color:var(--navy-dark);">➕ Agregar Nuevo Producto</h3>
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Nombre del Producto *</label>
+              <input type="text" id="prodName" class="big-input" placeholder="Ej. Pechuga sin hueso" />
+            </div>
+            <div>
+              <label class="form-label">Sección *</label>
+              <select id="prodSection" class="big-select"></select>
+            </div>
+            <div>
+              <label class="form-label">Precio (Q) *</label>
+              <input type="number" id="prodPrice" class="big-input" min="0" step="0.50" placeholder="Ej. 22.00" />
+            </div>
+            <div>
+              <label class="form-label">Puntos que otorga *</label>
+              <input type="number" id="prodPoints" class="big-input" min="0" step="1" placeholder="Ej. 22" />
+            </div>
+            <div>
+              <label class="form-label">Presentación / Unidad</label>
+              <input type="text" id="prodUnit" class="big-input" placeholder="Ej. Por libra / Unidad" />
+            </div>
+            <div>
+              <label class="form-label">Ícono (Emoji)</label>
+              <input type="text" id="prodIcon" class="big-input" value="🍗" maxlength="4" />
+            </div>
+          </div>
+          <button class="btn-3d btn-wa" onclick="addProduct()">💾 Guardar Producto</button>
+        </div>
+
+        <h3 style="color:var(--navy-dark);">📦 Productos Actuales (<span id="adminProdCount">0</span>)</h3>
+        <div id="adminProductsList"></div>
+      </div>
+
+      <!-- SUBTAB B: USUARIOS Y PUNTOS -->
+      <div id="adminSubUsers" class="hidden">
+        <div style="background:#F7EFE0; border:2px solid #D3C19C; border-radius:18px; padding:1rem; margin-bottom:1.25rem;">
+          <h3 style="margin:0 0 0.75rem; color:var(--navy-dark);">➕ Registrar Nuevo Cliente</h3>
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Nombre del Cliente *</label>
+              <input type="text" id="newUserName" class="big-input" placeholder="Ej. Doña Marta López" />
+            </div>
+            <div>
+              <label class="form-label">Número de Teléfono (8 dígitos) *</label>
+              <input type="tel" id="newUserPhone" class="big-input" placeholder="Ej. 55123456" />
+            </div>
+            <div>
+              <label class="form-label">Puntos Iniciales</label>
+              <input type="number" id="newUserPoints" class="big-input" value="0" min="0" />
+            </div>
+          </div>
+          <button class="btn-3d btn-wa" onclick="addUser()">✅ Registrar Cliente</button>
+        </div>
+
+        <h3 style="color:var(--navy-dark);">👥 Lista de Clientes Autorizados</h3>
+        <div id="adminUsersList"></div>
+      </div>
+
+      <!-- SUBTAB C: PREMIOS Y PREMIO GRANDE -->
+      <div id="adminSubRewards" class="hidden">
+        <!-- CONFIGURACIÓN DEL PREMIO GRANDE -->
+        <div style="background:#EEF4FF; border:3px solid var(--navy-main); border-radius:18px; padding:1rem; margin-bottom:1.35rem;">
+          <h3 style="margin:0 0 0.5rem; color:var(--navy-dark);">✨ Configurar Premio Grande (Ventana al Entrar y Destacado)</h3>
+          <p style="margin:0 0 0.85rem; font-size:0.95rem; color:var(--text-muted); font-weight:600;">
+            Este premio aparece apenas entran a la página (con botón X para cerrar) y sale con brillitos en la sección de puntos. Solo el admin puede editarlo. Cuando se canjea su existencia, se deshabilita para todos y muestra quién lo canjeó.
+          </p>
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Título del Premio Grande *</label>
+              <input type="text" id="gpTitle" class="big-input" />
+            </div>
+            <div>
+              <label class="form-label">Puntos Necesarios *</label>
+              <input type="number" id="gpCost" class="big-input" min="1" />
+            </div>
+            <div>
+              <label class="form-label">Existencia (Cantidad disponible) *</label>
+              <input type="number" id="gpStock" class="big-input" min="0" />
+            </div>
+            <div>
+              <label class="form-label">Ícono</label>
+              <input type="text" id="gpIcon" class="big-input" maxlength="4" />
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label class="form-label">Descripción llamativa</label>
+              <input type="text" id="gpDesc" class="big-input" />
+            </div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:0.65rem;">
+            <button class="btn-3d btn-gold" onclick="saveGrandPrize()">💾 Guardar Cambios del Premio Grande</button>
+            <button class="btn-3d btn-light" onclick="resetGrandPrizeClaims()">🔄 Reiniciar Canjes del Premio Grande</button>
+          </div>
+          <div id="gpAdminClaimsInfo" style="margin-top:0.85rem; font-weight:700; color:var(--navy-dark);"></div>
+        </div>
+
+        <!-- AGREGAR NUEVO PREMIO NORMAL -->
+        <div style="background:#F7EFE0; border:2px solid #D3C19C; border-radius:18px; padding:1rem; margin-bottom:1.25rem;">
+          <h3 style="margin:0 0 0.75rem; color:var(--navy-dark);">➕ Agregar Premio a la Tiendita</h3>
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Nombre del Premio *</label>
+              <input type="text" id="rewName" class="big-input" placeholder="Ej. Bolsa de Ricitos / Tortrix" />
+            </div>
+            <div>
+              <label class="form-label">Costo en Puntos *</label>
+              <input type="number" id="rewCost" class="big-input" min="1" placeholder="Ej. 25" />
+            </div>
+            <div>
+              <label class="form-label">Existencia (Cantidad) *</label>
+              <input type="number" id="rewStock" class="big-input" min="0" value="5" />
+            </div>
+            <div>
+              <label class="form-label">Ícono</label>
+              <input type="text" id="rewIcon" class="big-input" value="🍿" maxlength="4" />
+            </div>
+          </div>
+          <button class="btn-3d btn-wa" onclick="addReward()">🎁 Publicar Premio</button>
+        </div>
+
+        <h3 style="color:var(--navy-dark);">🎁 Premios en Tiendita</h3>
+        <div id="adminRewardsList"></div>
+      </div>
+
+      <!-- SUBTAB D: HISTORIAL DE CANJES -->
+      <div id="adminSubLogs" class="hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.85rem;">
+          <h3 style="margin:0; color:var(--navy-dark);">📋 Registro de Quién Canjeó Cada Premio</h3>
+          <button class="btn-3d btn-red btn-sm" onclick="confirmClearLogs()">🗑️ Limpiar Historial</button>
+        </div>
+        <div id="adminLogsList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRA INFERIOR DE PEDIDO -->
+  <div class="bottom-cart-bar">
+    <div class="bottom-cart-inner">
+      <div>
+        <div style="font-size:0.9rem; color:var(--gold-light); font-weight:800;">
+          🛒 Tu Pedido Actual (<span id="cartCount">0</span> artículos)
+        </div>
+        <div style="font-size:1.25rem; font-weight:900;">
+          Total: <span id="cartTotal">Q0.00</span>
+          <span style="font-size:0.9rem; color:#86EFAC; margin-left:0.5rem;">(+<span id="cartPointsTotal">0</span> pts)</span>
+        </div>
+      </div>
+      <button class="btn-3d btn-wa" onclick="openCartModal()">
+        📲 Ver y Enviar Pedido
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 1: PREMIO GRANDE AL ENTRAR (CON X PARA CERRAR) -->
+  <div id="grandPrizeModal" class="modal-backdrop">
+    <div class="modal-box" style="background: linear-gradient(160deg, #1C355E 0%, #10213D 100%); color:#FFF; border:5px solid var(--gold-light); text-align:center;">
+      <button class="modal-close-x" onclick="closeGrandPrizeModal()" aria-label="Cerrar ventana">✕</button>
+      <div style="font-size:1.4rem; margin-top:0.25rem;" class="sparkle-icon">✨ 🏆 ✨</div>
+      <div style="display:inline-block; background:var(--gold-main); color:var(--navy-dark); font-weight:900; padding:0.3rem 1rem; border-radius:999px; font-size:0.85rem; margin:0.5rem 0;">
+        ¡PREMIO MAYOR DE LA TIENDA!
+      </div>
+      <div id="modalGpContent"></div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: INICIO DE SESIÓN (CLIENTES Y ADMINISTRADORES) -->
+  <div id="loginModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-x" onclick="closeModal('loginModal')">✕</button>
+      <h2 style="margin:0 0 0.5rem; color:var(--navy-dark);">📱 Ingresar a ADONAI</h2>
+      <p style="margin:0 0 1rem; color:var(--text-muted); font-weight:600;">
+        Escribe tu número de teléfono registrado para ver tus puntos y canjear premios.
+      </p>
+
+      <label class="form-label" for="loginPhoneInput">Número de Teléfono:</label>
+      <input type="tel" id="loginPhoneInput" class="big-input" placeholder="Ej. 55551234" />
+
+      <div style="margin-top:1rem;">
+        <button class="btn-3d btn-navy" style="width:100%;" onclick="handleLogin()">✅ Entrar como Cliente</button>
+      </div>
+
+      <div style="margin-top:1.25rem; padding-top:1rem; border-top:2px dashed #D3C19C;">
+        <button class="btn-3d btn-light btn-sm" style="width:100%;" onclick="toggleAdminLogin()">🔐 Soy Administrador</button>
+        <div id="adminLoginBox" class="hidden" style="margin-top:0.9rem;">
+          <label class="form-label" for="adminUserInput">Usuario:</label>
+          <input type="text" id="adminUserInput" class="big-input" autocomplete="username" style="margin-bottom:0.7rem;" />
+          <label class="form-label" for="adminPassInput">Contraseña:</label>
+          <input type="password" id="adminPassInput" class="big-input" autocomplete="current-password" onkeydown="if(event.key==='Enter')handleAdminLogin()" />
+          <button class="btn-3d btn-red" style="width:100%; margin-top:0.9rem;" onclick="handleAdminLogin()">🔓 Entrar como Administrador</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CAMBIAR CONTRASEÑA DE ADMIN -->
+  <div id="changePassModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button id="cpCloseBtn" class="modal-close-x" onclick="closeModal('changePassModal')">✕</button>
+      <h2 style="margin:0 0 0.5rem; color:var(--navy-dark);">🔐 Cambiar Contraseña</h2>
+      <p id="cpForcedMsg" class="hidden" style="margin:0 0 1rem; color:var(--red-dark); font-weight:800;">
+        Por seguridad, debes cambiar tu contraseña temporal antes de continuar.
+      </p>
+      <label class="form-label">Contraseña actual:</label>
+      <input type="password" id="cpCurrent" class="big-input" style="margin-bottom:0.7rem;" autocomplete="current-password" />
+      <label class="form-label">Nueva contraseña (mínimo 6 caracteres):</label>
+      <input type="password" id="cpNew" class="big-input" style="margin-bottom:0.7rem;" autocomplete="new-password" />
+      <label class="form-label">Repite la nueva contraseña:</label>
+      <input type="password" id="cpNew2" class="big-input" style="margin-bottom:1rem;" autocomplete="new-password" />
+      <button class="btn-3d btn-wa" style="width:100%;" onclick="saveNewPassword()">💾 Guardar Contraseña</button>
+    </div>
+  </div>
+
+  <!-- MODAL 3: CONFIRMACIÓN DE ELIMINACIÓN (SIEMPRE PIDE CONFIRMAR) -->
+  <div id="confirmModal" class="modal-backdrop">
+    <div class="modal-box" style="border-color:var(--red-main); text-align:center;">
+      <div style="font-size:3rem;">⚠️</div>
+      <h2 id="confirmTitle" style="margin:0.4rem 0; color:var(--red-main);">¿Estás seguro?</h2>
+      <p id="confirmMessage" style="font-weight:700; color:var(--text-main); margin-bottom:1.35rem;"></p>
+      <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+        <button class="btn-3d btn-light" onclick="closeModal('confirmModal')">Cancelar</button>
+        <button id="confirmYesBtn" class="btn-3d btn-red">🗑️ Sí, Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: EDITAR / MODIFICAR USUARIO (CAMBIO DE NÚMERO O PUNTOS) -->
+  <div id="editUserModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-x" onclick="closeModal('editUserModal')">✕</button>
+      <h2 style="margin:0 0 0.5rem; color:var(--navy-dark);">✏️ Modificar Cliente</h2>
+      <p style="margin:0 0 1rem; color:var(--text-muted); font-weight:600;">
+        Si el cliente cambió o perdió su teléfono, actualiza aquí su número y conservará todos sus puntos.
+      </p>
+      <input type="hidden" id="editUserOldPhone" />
+
+      <label class="form-label">Nombre del Cliente:</label>
+      <input type="text" id="editUserName" class="big-input" style="margin-bottom:0.85rem;" />
+
+      <label class="form-label">Nuevo Número de Teléfono:</label>
+      <input type="tel" id="editUserNewPhone" class="big-input" style="margin-bottom:0.85rem;" />
+
+      <label class="form-label">Puntos Actuales:</label>
+      <input type="number" id="editUserPoints" class="big-input" min="0" style="margin-bottom:1.1rem;" />
+
+      <button class="btn-3d btn-wa" style="width:100%;" onclick="saveUserEdit()">💾 Guardar Cambios del Cliente</button>
+    </div>
+  </div>
+
+  <!-- MODAL 5: CARRITO Y ENVÍO POR WHATSAPP -->
+  <div id="cartModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-x" onclick="closeModal('cartModal')">✕</button>
+      <h2 style="margin:0 0 0.75rem; color:var(--navy-dark);">🛒 Resumen de Tu Pedido</h2>
+      <div id="cartItemsList" style="margin-bottom:1rem;"></div>
+
+      <div style="background:#FFF6DF; border:2px solid var(--gold-dark); border-radius:16px; padding:0.9rem; margin-bottom:1rem;">
+        <div style="display:flex; justify-content:space-between; font-weight:900; font-size:1.15rem;">
+          <span>Total a pagar:</span>
+          <span id="modalCartTotal" style="color:var(--red-main);">Q0.00</span>
+        </div>
+        <div style="font-size:0.9rem; font-weight:700; color:#14532D; margin-top:0.25rem;">
+          ⭐ Puntos que ganarás con esta compra: +<span id="modalCartPoints">0</span> pts
+        </div>
+      </div>
+
+      <label class="form-label">Tu Nombre:</label>
+      <input type="text" id="orderCustomerName" class="big-input" style="margin-bottom:0.8rem;" placeholder="Escribe tu nombre" />
+
+      <label class="form-label">¿Cómo deseas recibirlo?</label>
+      <select id="orderDeliveryType" class="big-select" style="margin-bottom:0.8rem;" onchange="toggleAddressField()">
+        <option value="Pasar a recoger en Tienda ADONAI">🏪 Pasar a recoger en la tienda</option>
+        <option value="Entrega a Domicilio">🛵 Entrega a domicilio</option>
+      </select>
+
+      <div id="addressFieldWrap" class="hidden" style="margin-bottom:0.9rem;">
+        <label class="form-label">Dirección de entrega:</label>
+        <input type="text" id="orderAddress" class="big-input" placeholder="Colonia, calle, número de casa o referencia" />
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.65rem;">
+        <button class="btn-3d btn-wa" onclick="sendOrderWhatsApp()">📲 Enviar Pedido por WhatsApp</button>
+        <button class="btn-3d btn-light btn-sm" onclick="clearCart()">🗑️ Vaciar Pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       SEGURIDAD Y SANITIZACIÓN XSS + ESTADO PERSISTENTE LOCALSTORAGE
+       ===================================================================== */
+    const STORAGE_KEY = 'adonai_store_v4';
+    const LEGACY_KEY = 'adonai_store_v3_secure';
+
+    /* SHA-256 en JavaScript puro (las contraseñas NUNCA se guardan en texto plano) */
+    const SHA_K = [], SHA_H = [];
+    (function () {
+      let n = 2, c = 0;
+      while (c < 64) {
+        let prime = true;
+        for (let d = 2; d * d <= n; d++) { if (n % d === 0) { prime = false; break; } }
+        if (prime) {
+          if (c < 8) SHA_H[c] = (Math.pow(n, 1 / 2) % 1 * 4294967296) | 0;
+          SHA_K[c] = (Math.pow(n, 1 / 3) % 1 * 4294967296) | 0;
+          c++;
+        }
+        n++;
+      }
+    })();
+    function rotr(x, n) { return (x >>> n) | (x << (32 - n)); }
+    function sha256Hex(msg) {
+      const str = unescape(encodeURIComponent(msg));
+      const bytes = [];
+      for (let i = 0; i < str.length; i++) bytes.push(str.charCodeAt(i));
+      const bitLen = bytes.length * 8;
+      bytes.push(0x80);
+      while (bytes.length % 64 !== 56) bytes.push(0);
+      const hi = Math.floor(bitLen / 4294967296), lo = bitLen >>> 0;
+      for (let i = 3; i >= 0; i--) bytes.push((hi >>> (i * 8)) & 255);
+      for (let i = 3; i >= 0; i--) bytes.push((lo >>> (i * 8)) & 255);
+      let h = SHA_H.slice();
+      const w = new Array(64);
+      for (let off = 0; off < bytes.length; off += 64) {
+        for (let i = 0; i < 16; i++) {
+          w[i] = (bytes[off + i * 4] << 24) | (bytes[off + i * 4 + 1] << 16) | (bytes[off + i * 4 + 2] << 8) | bytes[off + i * 4 + 3];
+        }
+        for (let i = 16; i < 64; i++) {
+          const s0 = rotr(w[i - 15], 7) ^ rotr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+          const s1 = rotr(w[i - 2], 17) ^ rotr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+          w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+        }
+        let [a, b, c, d, e, f, g, hh] = h;
+        for (let i = 0; i < 64; i++) {
+          const S1 = rotr(e, 6) ^ rotr(e, 11) ^ rotr(e, 25);
+          const ch = (e & f) ^ (~e & g);
+          const t1 = (hh + S1 + ch + SHA_K[i] + w[i]) | 0;
+          const S0 = rotr(a, 2) ^ rotr(a, 13) ^ rotr(a, 22);
+          const maj = (a & b) ^ (a & c) ^ (b & c);
+          const t2 = (S0 + maj) | 0;
+          hh = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
+        }
+        h = [(h[0] + a) | 0, (h[1] + b) | 0, (h[2] + c) | 0, (h[3] + d) | 0, (h[4] + e) | 0, (h[5] + f) | 0, (h[6] + g) | 0, (h[7] + hh) | 0];
+      }
+      return h.map(x => (x >>> 0).toString(16).padStart(8, '0')).join('');
+    }
+
+    function randomSalt() {
+      const arr = new Uint8Array(12);
+      if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(arr);
+      else for (let i = 0; i < arr.length; i++) arr[i] = Math.floor(Math.random() * 256);
+      return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    function hashPassword(salt, password) {
+      let out = salt + '|' + password;
+      for (let i = 0; i < 2000; i++) out = sha256Hex(out + salt);
+      return out;
+    }
+    function makeAdmin(username, name, password, mustChange, owner) {
+      const salt = randomSalt();
+      return { username, name, salt, hash: hashPassword(salt, password), mustChange: !!mustChange, owner: !!owner, createdBy: owner ? 'sistema' : '' };
+    }
+
+    function escapeHTML(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function cleanPhone(raw) {
+      return String(raw || '').replace(/\D/g, '').slice(0, 12);
+    }
+
+    const DEFAULT_STATE = {
+      // Administrador inicial: usuario "admin" / contraseña "Adonai2026" (el sistema obliga a cambiarla al entrar)
+      admins: [makeAdmin('admin', 'Dueño ADONAI', 'Adonai2026', true, true)],
+      orders: [],
+      fontSize: '18px',
+      whatsappNumber: '50255550000',
+      sections: [
+        'Pollo Fresco',
+        'Preparados y Asados',
+        'Embutidos',
+        'Lácteos y Crema'
+      ],
+      products: [
+        { id: 'p1', name: 'Pollo Blanco', section: 'Pollo Fresco', price: 16.00, points: 16, unit: 'Por libra', icon: '🐔' },
+        { id: 'p2', name: 'Pollo Amarillo', section: 'Pollo Fresco', price: 18.00, points: 18, unit: 'Por libra', icon: '🐓' },
+        { id: 'p3', name: 'Pierna Importada', section: 'Pollo Fresco', price: 14.00, points: 14, unit: 'Por libra', icon: '🍗' },
+        { id: 'p4', name: 'Alitas en Barbacoa', section: 'Preparados y Asados', price: 28.00, points: 28, unit: 'Porción', icon: '🔥' },
+        { id: 'p5', name: 'Milanesa de Pollo', section: 'Preparados y Asados', price: 24.00, points: 24, unit: 'Por libra', icon: '🥩' },
+        { id: 'p6', name: 'Tortitas de Pollo', section: 'Preparados y Asados', price: 20.00, points: 20, unit: 'Bandeja', icon: '🍳' },
+        { id: 'p7', name: 'Longanizas y Chorizos', section: 'Embutidos', price: 22.00, points: 22, unit: 'Por libra', icon: '🌭' },
+        { id: 'p8', name: 'Crema Pura', section: 'Lácteos y Crema', price: 15.00, points: 15, unit: 'Vaso / Media', icon: '🥛' },
+        { id: 'p9', name: 'Queso Fresco', section: 'Lácteos y Crema', price: 18.00, points: 18, unit: 'Unidad', icon: '🧀' },
+        { id: 'p10', name: 'Quesillo', section: 'Lácteos y Crema', price: 20.00, points: 20, unit: 'Por libra', icon: '🧈' }
+      ],
+      users: {
+        '55551234': { name: 'Doña Carmen (Cliente Demo)', phone: '55551234', points: 180, role: 'client' }
+      },
+      grandPrize: {
+        title: 'Canasta Familiar ADONAI + 2 Libras de Pollo Amarillo',
+        desc: '¡Premio especial por tu fidelidad! Incluye pollo fresco, crema, queso y ricitos surtidos.',
+        cost: 150,
+        stock: 2,
+        icon: '🏆',
+        claimedBy: []
+      },
+      rewards: [
+        { id: 'r1', name: 'Bolsa de Ricitos / Tortrix', cost: 20, stock: 10, icon: '🍿', claimedBy: [] },
+        { id: 'r2', name: 'Agua Gaseosa Personal', cost: 35, stock: 8, icon: '🥤', claimedBy: [] },
+        { id: 'r3', name: 'Paquete de Galletas Dulces', cost: 30, stock: 6, icon: '🍪', claimedBy: [] },
+        { id: 'r4', name: 'Media Libra de Queso Fresco', cost: 75, stock: 3, icon: '🧀', claimedBy: [] },
+        { id: 'r5', name: '1 Libra de Pollo Blanco', cost: 110, stock: 2, icon: '🐔', claimedBy: [] }
+      ],
+      claimLogs: []
+    };
+
+    function loadState() {
+      const fresh = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_KEY);
+        if (!raw) return fresh;
+        const parsed = JSON.parse(raw);
+        delete parsed.adminPin; // el PIN viejo ya no se usa
+        if (parsed.users) {
+          Object.keys(parsed.users).forEach(k => { if (parsed.users[k] && parsed.users[k].role === 'admin') delete parsed.users[k]; });
+        }
+        const merged = { ...fresh, ...parsed };
+        if (!Array.isArray(merged.admins) || merged.admins.length === 0) merged.admins = fresh.admins;
+        if (!Array.isArray(merged.orders)) merged.orders = [];
+        return merged;
+      } catch (e) {
+        return fresh;
+      }
+    }
+
+    let state = loadState();
+    let currentUserPhone = sessionStorage.getItem('adonai_session_phone') || null;
+    let adminSession = sessionStorage.getItem('adonai_admin_session') || null;
+    let orderFilter = 'pending';
+    let loginLock = { count: 0, until: 0 };
+    let selectedSection = 'Todas';
+    let cart = []; // { type: 'product'|'reward'|'grandPrize', id, name, price, points, qty }
+    let pendingConfirmAction = null;
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+    }
+
+    function getCurrentUser() {
+      if (!currentUserPhone) return null;
+      return state.users[currentUserPhone] || null;
+    }
+
+    function currentAdmin() {
+      if (!adminSession) return null;
+      return (state.admins || []).find(a => a.username === adminSession) || null;
+    }
+
+    function isAdmin() {
+      return !!currentAdmin();
+    }
+
+    /* =====================================================================
+       INICIALIZACIÓN Y TAMAÑO DE LETRA GLOBAL
+       ===================================================================== */
+    function applyFontSize() {
+      document.documentElement.style.setProperty('--base-font', state.fontSize || '18px');
+    }
+
+    function setGlobalFontSize(size) {
+      if (!isAdmin()) return;
+      state.fontSize = size;
+      saveState();
+      applyFontSize();
+      showToast('🔠 Tamaño de letra actualizado a ' + size);
+    }
+
+    /* =====================================================================
+       AUTENTICACIÓN: CLIENTES CON TELÉFONO / ADMINISTRADORES CON USUARIO Y CONTRASEÑA
+       ===================================================================== */
+    function logoutAll() {
+      currentUserPhone = null;
+      adminSession = null;
+      sessionStorage.removeItem('adonai_session_phone');
+      sessionStorage.removeItem('adonai_admin_session');
+      switchMainView('menu');
+      updateUserUI();
+      renderAll();
+      showToast('👋 Sesión cerrada correctamente');
+    }
+
+    function openLoginModal() {
+      const admin = currentAdmin();
+      const u = getCurrentUser();
+      if (admin || u) {
+        openConfirmModal(
+          'Cerrar Sesión',
+          `¿Deseas salir de la cuenta de ${admin ? admin.name + ' (Admin)' : u.name}?`,
+          logoutAll
+        );
+        return;
+      }
+      document.getElementById('loginPhoneInput').value = '';
+      document.getElementById('adminUserInput').value = '';
+      document.getElementById('adminPassInput').value = '';
+      document.getElementById('adminLoginBox').classList.add('hidden');
+      document.getElementById('loginModal').classList.add('open');
+    }
+
+    function toggleAdminLogin() {
+      document.getElementById('adminLoginBox').classList.toggle('hidden');
+      setTimeout(() => document.getElementById('adminUserInput').focus(), 50);
+    }
+
+    function handleLogin() {
+      const phone = cleanPhone(document.getElementById('loginPhoneInput').value);
+      if (!phone) {
+        showToast('⚠️ Escribe un número de teléfono válido');
+        return;
+      }
+      const user = state.users[phone];
+      if (!user) {
+        showToast('❌ Número no registrado. Pide al dueño de ADONAI que te registre.');
+        return;
+      }
+      currentUserPhone = phone;
+      sessionStorage.setItem('adonai_session_phone', phone);
+      closeModal('loginModal');
+      updateUserUI();
+      renderAll();
+      showToast(`✅ ¡Bienvenido, ${user.name}!`);
+    }
+
+    function handleAdminLogin() {
+      if (Date.now() < loginLock.until) {
+        const secs = Math.ceil((loginLock.until - Date.now()) / 1000);
+        showToast(`⏳ Demasiados intentos. Espera ${secs} segundos.`);
+        return;
+      }
+      const username = document.getElementById('adminUserInput').value.trim().toLowerCase();
+      const pass = document.getElementById('adminPassInput').value;
+      const admin = (state.admins || []).find(a => a.username === username);
+      if (!admin || hashPassword(admin.salt, pass) !== admin.hash) {
+        loginLock.count++;
+        if (loginLock.count >= 5) {
+          loginLock = { count: 0, until: Date.now() + 30000 };
+          showToast('⛔ 5 intentos fallidos. Espera 30 segundos.');
+        } else {
+          showToast('🔐 Usuario o contraseña incorrectos');
+        }
+        return;
+      }
+      loginLock = { count: 0, until: 0 };
+      adminSession = admin.username;
+      sessionStorage.setItem('adonai_admin_session', admin.username);
+      closeModal('loginModal');
+      updateUserUI();
+      renderAll();
+      showToast(`✅ ¡Bienvenido, ${admin.name}!`);
+      if (admin.mustChange) openChangePassModal(true);
+    }
+
+    function openChangePassModal(forced) {
+      if (!isAdmin()) return;
+      ['cpCurrent', 'cpNew', 'cpNew2'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('cpForcedMsg').classList.toggle('hidden', !forced);
+      document.getElementById('cpCloseBtn').classList.toggle('hidden', !!forced);
+      document.getElementById('changePassModal').classList.add('open');
+    }
+
+    function saveNewPassword() {
+      const admin = currentAdmin();
+      if (!admin) return;
+      const cur = document.getElementById('cpCurrent').value;
+      const n1 = document.getElementById('cpNew').value;
+      const n2 = document.getElementById('cpNew2').value;
+      if (hashPassword(admin.salt, cur) !== admin.hash) { showToast('❌ La contraseña actual no es correcta'); return; }
+      if (n1.length < 6) { showToast('⚠️ La nueva contraseña debe tener al menos 6 caracteres'); return; }
+      if (n1 !== n2) { showToast('⚠️ Las contraseñas nuevas no coinciden'); return; }
+      if (n1 === cur) { showToast('⚠️ La nueva contraseña debe ser distinta a la actual'); return; }
+      admin.salt = randomSalt();
+      admin.hash = hashPassword(admin.salt, n1);
+      admin.mustChange = false;
+      saveState();
+      closeModal('changePassModal');
+      renderAdminAdmins();
+      showToast('🔐 Contraseña actualizada con éxito');
+    }
+
+    function updateUserUI() {
+      const u = getCurrentUser();
+      const admin = currentAdmin();
+      const btnAuth = document.getElementById('btnAuthAction');
+      const wTitle = document.getElementById('welcomeTitle');
+      const wSub = document.getElementById('welcomeSubtitle');
+      const ptsBadge = document.getElementById('userPointsBadge');
+      const ptsVal = document.getElementById('userPointsValue');
+      const tabAdmin = document.getElementById('tabAdmin');
+
+      tabAdmin.classList.toggle('hidden', !admin);
+
+      if (admin) {
+        btnAuth.textContent = `🚪 Salir (Admin: ${admin.username})`;
+        wTitle.textContent = `👑 ¡Hola, ${admin.name}!`;
+        wSub.textContent = 'Modo Administrador activo: gestiona pedidos pendientes, productos, clientes, puntos y premios.';
+        ptsBadge.classList.add('hidden');
+        return;
+      }
+      if (!u) {
+        btnAuth.textContent = '📱 Entrar con Teléfono';
+        wTitle.textContent = '👋 ¡Bienvenido vecino! Estás viendo el catálogo como visitante.';
+        wSub.textContent = 'Ingresa con tu número de teléfono para acumular puntos y canjear premios gratis.';
+        ptsBadge.classList.add('hidden');
+      } else {
+        btnAuth.textContent = `🚪 Salir (${u.phone})`;
+        wTitle.textContent = `👋 ¡Hola, ${u.name}! (${u.phone})`;
+        const pend = (state.orders || []).filter(o => o.status === 'pending' && o.phone === u.phone).length;
+        wSub.textContent = pend > 0
+          ? `⏳ Tienes ${pend} pedido(s) pendiente(s). Tus puntos se suman cuando pases a recogerlo.`
+          : '¡Cada compra suma puntos para canjear en la tiendita ADONAI!';
+        ptsBadge.classList.remove('hidden');
+        ptsVal.textContent = `${u.points} pts`;
+      }
+    }
+
+    /* =====================================================================
+       NAVEGACIÓN ENTRE VISTAS PRINCIPALES
+       ===================================================================== */
+    function switchMainView(view) {
+      if (view === 'admin' && !isAdmin()) {
+        showToast('🔐 Acceso exclusivo para el administrador');
+        return;
+      }
+      document.getElementById('viewMenu').classList.toggle('hidden', view !== 'menu');
+      document.getElementById('viewRewards').classList.toggle('hidden', view !== 'rewards');
+      document.getElementById('viewAdmin').classList.toggle('hidden', view !== 'admin');
+
+      document.getElementById('tabMenu').classList.toggle('active', view === 'menu');
+      document.getElementById('tabRewards').classList.toggle('active', view === 'rewards');
+      document.getElementById('tabAdmin').classList.toggle('active', view === 'admin');
+
+      if (view === 'rewards') renderRewards();
+      if (view === 'admin') renderAdminAll();
+    }
+
+    function switchAdminSubtab(sub) {
+      const map = { orders: 'adminSubOrders', products: 'adminSubProducts', users: 'adminSubUsers', rewards: 'adminSubRewards', logs: 'adminSubLogs', admins: 'adminSubAdmins' };
+      Object.keys(map).forEach(k => document.getElementById(map[k]).classList.toggle('hidden', k !== sub));
+      if (sub === 'orders') renderAdminOrders();
+      if (sub === 'admins') renderAdminAdmins();
+    }
+
+    /* =====================================================================
+       CATÁLOGO, BUSCADOR Y SECCIONES
+       ===================================================================== */
+    function clearSearch() {
+      document.getElementById('searchProductInput').value = '';
+      selectedSection = 'Todas';
+      renderSectionsPills();
+      renderProducts();
+    }
+
+    function selectSection(sec) {
+      selectedSection = sec;
+      renderSectionsPills();
+      renderProducts();
+    }
+
+    function renderSectionsPills() {
+      const container = document.getElementById('sectionsPillsContainer');
+      const allSecs = ['Todas', ...state.sections];
+      container.innerHTML = allSecs.map(sec => `
+        <button class="section-pill ${selectedSection === sec ? 'active' : ''}"
+                onclick="selectSection('${escapeHTML(sec)}')">
+          ${sec === 'Todas' ? '🌟 Todas las Secciones' : escapeHTML(sec)}
+        </button>
+      `).join('');
+    }
+
+    function renderProducts() {
+      const query = (document.getElementById('searchProductInput').value || '').toLowerCase().trim();
+      const grid = document.getElementById('productsGrid');
+
+      const filtered = state.products.filter(p => {
+        const matchSec = selectedSection === 'Todas' || p.section === selectedSection;
+        const matchQuery = !query ||
+          p.name.toLowerCase().includes(query) ||
+          p.section.toLowerCase().includes(query) ||
+          (p.unit && p.unit.toLowerCase().includes(query));
+        return matchSec && matchQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column:1/-1; background:var(--cream-card); border:3px dashed #C6B28B; border-radius:20px; padding:2rem; text-align:center;">
+            <div style="font-size:2.5rem;">🔍</div>
+            <h3 style="margin:0.5rem 0;">No encontramos productos con esa búsqueda</h3>
+            <button class="btn-3d btn-gold btn-sm" onclick="clearSearch()">Ver todos los productos</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => `
+        <article class="product-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.4rem; flex-wrap:wrap;">
+              <span class="badge-section">${escapeHTML(p.section)}</span>
+              <span class="badge-pts">⭐ +${Number(p.points)} pts</span>
+            </div>
+            <div style="font-size:2.4rem; margin:0.4rem 0;">${escapeHTML(p.icon || '🍗')}</div>
+            <h3 style="margin:0; font-size:1.25rem; color:var(--navy-dark);">${escapeHTML(p.name)}</h3>
+            <div style="color:var(--text-muted); font-weight:600; font-size:0.9rem;">${escapeHTML(p.unit || 'Por unidad')}</div>
+            <div class="price-tag">Q${Number(p.price).toFixed(2)}</div>
+          </div>
+
+          <button class="btn-3d btn-gold" style="width:100%; margin-top:0.75rem;" onclick="addProductToCart('${escapeHTML(p.id)}')">
+            + Agregar al Pedido
+          </button>
+        </article>
+      `).join('');
+    }
+
+    /* =====================================================================
+       PREMIO GRANDE (POPUP AL ENTRAR CON X + DESTACADO EN PUNTOS)
+       ===================================================================== */
+    function openGrandPrizeModal() {
+      const gp = state.grandPrize;
+      const u = getCurrentUser();
+      const remaining = Math.max(0, Number(gp.stock));
+      const userAlreadyClaimed = u && gp.claimedBy.includes(u.phone);
+      const isExhausted = remaining <= 0;
+
+      const lastClaimers = gp.claimedBy.length > 0
+        ? gp.claimedBy.map(c => `${escapeHTML(c.name)} (${escapeHTML(c.phone)})`).join(', ')
+        : '';
+
+      let actionHtml = '';
+      if (isExhausted) {
+        actionHtml = `
+          <div style="background:#FEE2E2; color:#7F1D1D; border:3px solid #EF4444; border-radius:16px; padding:0.9rem; font-weight:900; margin-top:1rem;">
+            🚫 ¡PREMIO AGOTADO / YA CANJEADO!<br/>
+            <span style="font-size:0.9rem; font-weight:700;">Canjeado por: ${lastClaimers || 'Clientes registrados'}</span>
+          </div>
+        `;
+      } else if (!u) {
+        actionHtml = `
+          <button class="btn-3d btn-gold" style="width:100%; margin-top:1rem;" onclick="closeGrandPrizeModal(); openLoginModal();">
+            📱 Ingresa con tu Teléfono para Canjearlo
+          </button>
+        `;
+      } else if (u.points < gp.cost) {
+        actionHtml = `
+          <button class="btn-3d btn-light" style="width:100%; margin-top:1rem;" disabled>
+            Te faltan ${gp.cost - u.points} pts (Tienes ${u.points} pts)
+          </button>
+        `;
+      } else {
+        actionHtml = `
+          <button class="btn-3d btn-gold" style="width:100%; margin-top:1rem;" onclick="claimGrandPrize()">
+            ✨ ¡Canjear Premio Grande Ahora (${gp.cost} pts)!
+          </button>
+        `;
+      }
+
+      document.getElementById('modalGpContent').innerHTML = `
+        <div style="font-size:3.5rem; margin:0.35rem 0;">${escapeHTML(gp.icon || '🏆')}</div>
+        <h2 style="margin:0.25rem 0; color:var(--gold-light); font-size:1.5rem;">${escapeHTML(gp.title)}</h2>
+        <p style="color:#F1F5F9; font-weight:600; margin:0.6rem 0 1rem;">${escapeHTML(gp.desc)}</p>
+        <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+          <span style="background:rgba(255,255,255,0.14); border:2px solid var(--gold-light); padding:0.4rem 0.9rem; border-radius:999px; font-weight:800;">
+            ⭐ Costo: ${gp.cost} puntos
+          </span>
+          <span class="stock-pill ${isExhausted ? 'stock-out' : 'stock-ok'}">
+            ${isExhausted ? '❌ Agotado (0 disponibles)' : `✅ Quedan ${remaining} disponibles`}
+          </span>
+        </div>
+        ${gp.claimedBy.length > 0 && !isExhausted ? `
+          <div style="margin-top:0.75rem; font-size:0.88rem; color:#FDE68A; font-weight:700;">
+            🏅 Ya lo canjearon: ${lastClaimers}
+          </div>
+        ` : ''}
+        ${actionHtml}
+      `;
+
+      document.getElementById('grandPrizeModal').classList.add('open');
+    }
+
+    function closeGrandPrizeModal() {
+      document.getElementById('grandPrizeModal').classList.remove('open');
+    }
+
+    function claimGrandPrize() {
+      const u = getCurrentUser();
+      if (!u) {
+        openLoginModal();
+        return;
+      }
+      const gp = state.grandPrize;
+      if (gp.stock <= 0) {
+        showToast('❌ Este premio ya se agotó');
+        return;
+      }
+      if (u.points < gp.cost) {
+        showToast('⚠️ No tienes suficientes puntos');
+        return;
+      }
+
+      openConfirmModal(
+        'Confirmar Canje de Premio Grande',
+        `¿Deseas canjear "${gp.title}" por ${gp.cost} puntos? Se descontarán de tu cuenta.`,
+        () => {
+          u.points -= Number(gp.cost);
+          gp.stock = Math.max(0, Number(gp.stock) - 1);
+          const nowStr = new Date().toLocaleString('es-GT');
+          gp.claimedBy.push({ name: u.name, phone: u.phone, date: nowStr });
+          state.claimLogs.unshift({
+            id: 'log_' + Date.now(),
+            prizeName: '🏆 [PREMIO GRANDE] ' + gp.title,
+            userName: u.name,
+            userPhone: u.phone,
+            cost: gp.cost,
+            date: nowStr
+          });
+
+          cart.push({
+            type: 'grandPrize',
+            id: 'gp_main',
+            name: '🏆 PREMIO GRANDE CANJEADO: ' + gp.title,
+            price: 0,
+            points: 0,
+            qty: 1
+          });
+
+          saveState();
+          updateUserUI();
+          updateCartBar();
+          closeGrandPrizeModal();
+          renderRewards();
+          if (isAdmin()) renderAdminAll();
+          showToast('🎉 ¡Felicidades! Canjeaste el Premio Grande');
+        }
+      );
+    }
+
+    /* =====================================================================
+       SECCIÓN DE PUNTOS Y PREMIOS DE LA TIENDITA
+       ===================================================================== */
+    function renderRewards() {
+      const u = getCurrentUser();
+      const gp = state.grandPrize;
+      const gpRemaining = Math.max(0, Number(gp.stock));
+      const gpExhausted = gpRemaining <= 0;
+      const gpClaimers = gp.claimedBy.map(c => `${escapeHTML(c.name)} (${escapeHTML(c.phone)})`).join(', ');
+
+      // Renderizar Premio Grande Destacado con Brillitos
+      const gpBox = document.getElementById('grandPrizeHighlightBox');
+      gpBox.innerHTML = `
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;">
+          <div style="flex:1; min-width:240px;">
+            <div style="display:inline-flex; align-items:center; gap:0.4rem; background:var(--gold-light); color:var(--navy-dark); font-weight:900; padding:0.3rem 0.9rem; border-radius:999px; font-size:0.85rem; margin-bottom:0.5rem;">
+              <span class="sparkle-icon">✨</span> PREMIO GRANDE DESTACADO <span class="sparkle-icon">✨</span>
+            </div>
+            <h2 style="margin:0.2rem 0; color:var(--gold-light); font-size:1.55rem;">
+              ${escapeHTML(gp.icon || '🏆')} ${escapeHTML(gp.title)}
+            </h2>
+            <p style="margin:0.4rem 0 0.75rem; color:#F8FAFC; font-weight:600;">${escapeHTML(gp.desc)}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center;">
+              <span style="background:rgba(255,255,255,0.16); border:2px solid var(--gold-light); padding:0.35rem 0.85rem; border-radius:999px; font-weight:800;">
+                ⭐ ${gp.cost} Puntos
+              </span>
+              <span class="stock-pill ${gpExhausted ? 'stock-out' : 'stock-ok'}">
+                ${gpExhausted ? '🚫 Agotado / Ya Canjeado' : `✅ Disponibles: ${gpRemaining}`}
+              </span>
+            </div>
+            ${gp.claimedBy.length > 0 ? `
+              <div style="margin-top:0.65rem; background:rgba(0,0,0,0.3); padding:0.5rem 0.8rem; border-radius:12px; font-size:0.9rem; color:#FDE68A; font-weight:700;">
+                🏅 Canjeado por: ${gpClaimers}
+              </div>
+            ` : ''}
+          </div>
+          <div style="min-width:210px;">
+            ${gpExhausted
+              ? `<button class="btn-3d btn-light" style="width:100%;" disabled>🚫 Ya fue canjeado</button>`
+              : (!u
+                  ? `<button class="btn-3d btn-gold" style="width:100%;" onclick="openLoginModal()">📱 Entra para Canjear</button>`
+                  : `<button class="btn-3d btn-gold" style="width:100%;" ${u.points < gp.cost ? 'disabled' : ''} onclick="claimGrandPrize()">
+                      ${u.points < gp.cost ? `Faltan ${gp.cost - u.points} pts` : '✨ Canjear Premio Grande'}
+                    </button>`
+                )
+            }
+          </div>
+        </div>
+      `;
+
+      // Renderizar Premios de la Tiendita
+      const grid = document.getElementById('rewardsGrid');
+      grid.innerHTML = state.rewards.map(r => {
+        const rem = Math.max(0, Number(r.stock));
+        const exhausted = rem <= 0;
+        const claimersText = (r.claimedBy || []).map(c => escapeHTML(c.name)).join(', ');
+
+        let btnHtml = '';
+        if (exhausted) {
+          btnHtml = `<button class="btn-3d btn-light" style="width:100%;" disabled>🚫 Agotado / Ya Canjeado</button>`;
+        } else if (!u) {
+          btnHtml = `<button class="btn-3d btn-navy" style="width:100%;" onclick="openLoginModal()">📱 Entra para Canjear</button>`;
+        } else if (u.points < r.cost) {
+          btnHtml = `<button class="btn-3d btn-light" style="width:100%;" disabled>Te faltan ${r.cost - u.points} pts</button>`;
+        } else {
+          btnHtml = `<button class="btn-3d btn-wa" style="width:100%;" onclick="claimNormalReward('${escapeHTML(r.id)}')">🎁 Canjear Gratis (${r.cost} pts)</button>`;
+        }
+
+        return `
+          <article class="product-card" style="${exhausted ? 'opacity:0.78; background:#F3ECE0;' : ''}">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:0.4rem; flex-wrap:wrap;">
+                <span class="badge-pts">⭐ ${r.cost} puntos</span>
+                <span class="stock-pill ${exhausted ? 'stock-out' : 'stock-ok'}">
+                  ${exhausted ? '❌ Ya lo canjearon (0)' : `📦 Quedan ${rem}`}
+                </span>
+              </div>
+              <div style="font-size:2.5rem; margin:0.5rem 0;">${escapeHTML(r.icon || '🎁')}</div>
+              <h3 style="margin:0; font-size:1.25rem; color:var(--navy-dark);">${escapeHTML(r.name)}</h3>
+              ${claimersText ? `
+                <div style="margin-top:0.5rem; font-size:0.85rem; font-weight:700; color:var(--red-main);">
+                  🏅 Canjeado por: ${claimersText}
+                </div>
+              ` : ''}
+            </div>
+            <div style="margin-top:0.9rem;">${btnHtml}</div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function claimNormalReward(rewardId) {
+      const u = getCurrentUser();
+      if (!u) { openLoginModal(); return; }
+      const r = state.rewards.find(x => x.id === rewardId);
+      if (!r || r.stock <= 0) {
+        showToast('❌ Este premio ya se agotó');
+        return;
+      }
+      if (u.points < r.cost) {
+        showToast('⚠️ No tienes suficientes puntos');
+        return;
+      }
+
+      openConfirmModal(
+        'Confirmar Canje de Premio',
+        `¿Canjear "${r.name}" por ${r.cost} puntos?`,
+        () => {
+          u.points -= Number(r.cost);
+          r.stock = Math.max(0, Number(r.stock) - 1);
+          if (!r.claimedBy) r.claimedBy = [];
+          const nowStr = new Date().toLocaleString('es-GT');
+          r.claimedBy.push({ name: u.name, phone: u.phone, date: nowStr });
+
+          state.claimLogs.unshift({
+            id: 'log_' + Date.now(),
+            prizeName: r.name,
+            userName: u.name,
+            userPhone: u.phone,
+            cost: r.cost,
+            date: nowStr
+          });
+
+          cart.push({
+            type: 'reward',
+            id: r.id,
+            name: '🎁 PREMIO CANJEADO: ' + r.name,
+            price: 0,
+            points: 0,
+            qty: 1
+          });
+
+          saveState();
+          updateUserUI();
+          updateCartBar();
+          renderRewards();
+          if (isAdmin()) renderAdminAll();
+          showToast(`🎉 ¡Canjeaste "${r.name}"! Se agregó a tu pedido.`);
+        }
+      );
+    }
+
+    /* =====================================================================
+       CARRITO DE COMPRAS Y WHATSAPP
+       ===================================================================== */
+    function addProductToCart(prodId) {
+      const p = state.products.find(x => x.id === prodId);
+      if (!p) return;
+      const existing = cart.find(c => c.type === 'product' && c.id === prodId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          type: 'product',
+          id: p.id,
+          name: p.name,
+          price: Number(p.price),
+          points: Number(p.points),
+          qty: 1
+        });
+      }
+      updateCartBar();
+      showToast(`✅ Agregado: ${p.name}`);
+    }
+
+    function updateCartBar() {
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      const totalMoney = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const totalPts = cart.reduce((acc, item) => acc + (item.points * item.qty), 0);
+
+      document.getElementById('cartCount').textContent = totalItems;
+      document.getElementById('cartTotal').textContent = `Q${totalMoney.toFixed(2)}`;
+      document.getElementById('cartPointsTotal').textContent = totalPts;
+    }
+
+    function openCartModal() {
+      const u = getCurrentUser();
+      if (u && !document.getElementById('orderCustomerName').value) {
+        document.getElementById('orderCustomerName').value = u.name;
+      }
+      renderCartModalItems();
+      document.getElementById('cartModal').classList.add('open');
+    }
+
+    function renderCartModalItems() {
+      const list = document.getElementById('cartItemsList');
+      if (cart.length === 0) {
+        list.innerHTML = `<p style="text-align:center; font-weight:700; color:var(--text-muted);">Tu pedido está vacío. Agrega productos del menú.</p>`;
+      } else {
+        list.innerHTML = cart.map((item, idx) => `
+          <div class="list-row">
+            <div>
+              <strong>${escapeHTML(item.name)}</strong>
+              <div style="font-size:0.9rem; color:var(--text-muted);">
+                ${item.price === 0 ? '¡GRATIS POR PUNTOS!' : `Q${item.price.toFixed(2)} c/u • +${item.points} pts`}
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              ${item.type === 'product' ? `
+                <button class="btn-3d btn-light btn-sm" onclick="changeCartQty(${idx}, -1)">−</button>
+                <strong>${item.qty}</strong>
+                <button class="btn-3d btn-gold btn-sm" onclick="changeCartQty(${idx}, 1)">+</button>
+              ` : `<strong>1 unidad</strong>`}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const totalMoney = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const totalPts = cart.reduce((acc, item) => acc + (item.points * item.qty), 0);
+      document.getElementById('modalCartTotal').textContent = `Q${totalMoney.toFixed(2)}`;
+      document.getElementById('modalCartPoints').textContent = totalPts;
+    }
+
+    function changeCartQty(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      updateCartBar();
+      renderCartModalItems();
+    }
+
+    function clearCart() {
+      openConfirmModal('Vaciar Pedido', '¿Deseas quitar todos los productos de tu pedido actual?', () => {
+        cart = [];
+        updateCartBar();
+        renderCartModalItems();
+        showToast('🗑️ Pedido vaciado');
+      });
+    }
+
+    function toggleAddressField() {
+      const type = document.getElementById('orderDeliveryType').value;
+      document.getElementById('addressFieldWrap').classList.toggle('hidden', type !== 'Entrega a Domicilio');
+    }
+
+    function b64urlEncode(obj) {
+      const b = btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
+      return b.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    }
+    function b64urlDecode(str) {
+      let b = str.replace(/-/g, '+').replace(/_/g, '/');
+      while (b.length % 4) b += '=';
+      return JSON.parse(decodeURIComponent(escape(atob(b))));
+    }
+    function newOrderId() {
+      return 'ADN-' + Date.now().toString(36).toUpperCase().slice(-5) + Math.random().toString(36).toUpperCase().slice(2, 4);
+    }
+
+    function sendOrderWhatsApp() {
+      if (cart.length === 0) {
+        showToast('⚠️ Agrega al menos un producto o premio primero');
+        return;
+      }
+      const custName = document.getElementById('orderCustomerName').value.trim() || 'Cliente';
+      const delivType = document.getElementById('orderDeliveryType').value;
+      const addr = document.getElementById('orderAddress').value.trim();
+      const u = getCurrentUser();
+
+      const totalMoney = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const totalPts = cart.reduce((acc, item) => acc + (item.points * item.qty), 0);
+
+      // 1) Registrar el pedido como PENDIENTE (los puntos NO se dan todavía)
+      const order = {
+        id: newOrderId(),
+        createdAt: new Date().toISOString(),
+        customerName: custName,
+        phone: u ? u.phone : '',
+        delivery: delivType,
+        address: delivType === 'Entrega a Domicilio' ? addr : '',
+        items: cart.map(i => ({ name: i.name, price: Number(i.price), points: Number(i.points), qty: Number(i.qty) })),
+        total: totalMoney,
+        points: totalPts,
+        status: 'pending',
+        awarded: false
+      };
+      state.orders.unshift(order);
+      saveState();
+
+      // 2) Mensaje de WhatsApp con el número de pedido y un código para importarlo en el panel
+      const code = b64urlEncode({ id: order.id, n: order.customerName, p: order.phone, d: order.delivery, a: order.address, t: order.items.map(i => [i.name, i.price, i.points, i.qty]), ts: order.createdAt });
+      let lines = [
+        `🐔 *NUEVO PEDIDO - ADONAI TIENDA Y VENTA DE POLLO*`,
+        `🔖 *Pedido N°:* ${order.id}`,
+        `👤 *Cliente:* ${custName}`,
+        u ? `📱 *Teléfono registrado:* ${u.phone}` : '',
+        `🚚 *Modalidad:* ${delivType}`,
+        delivType === 'Entrega a Domicilio' && addr ? `📍 *Dirección:* ${addr}` : '',
+        ``,
+        `📋 *Detalle del Pedido:*`
+      ].filter(Boolean);
+
+      order.items.forEach(item => {
+        if (item.price === 0) {
+          lines.push(`• ${item.name} (GRATIS)`);
+        } else {
+          lines.push(`• ${item.qty}x ${item.name} — Q${(item.price * item.qty).toFixed(2)}`);
+        }
+      });
+
+      lines.push('');
+      lines.push(`💰 *TOTAL A PAGAR: Q${totalMoney.toFixed(2)}*`);
+      lines.push(`⭐ *Puntos a acreditar al recoger/entregar: +${totalPts} pts*`);
+      lines.push('');
+      lines.push(`[[ADONAI:${code}]]`);
+
+      const waUrl = `https://wa.me/${state.whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      cart = [];
+      updateCartBar();
+      renderCartModalItems();
+      closeModal('cartModal');
+      updateUserUI();
+      if (isAdmin()) renderAdminAll();
+      showToast(`✅ Pedido ${order.id} registrado como PENDIENTE. Los puntos se suman al recogerlo.`);
+    }
+
+    /* =====================================================================
+       MODAL DE CONFIRMACIÓN UNIVERSAL (ELIMINACIONES Y CAMBIOS CRÍTICOS)
+       ===================================================================== */
+    function openConfirmModal(title, message, onConfirmCallback) {
+      document.getElementById('confirmTitle').textContent = title;
+      document.getElementById('confirmMessage').textContent = message;
+      pendingConfirmAction = onConfirmCallback;
+      document.getElementById('confirmModal').classList.add('open');
+    }
+
+    document.getElementById('confirmYesBtn').addEventListener('click', function () {
+      const fn = pendingConfirmAction;
+      closeModal('confirmModal');
+      if (typeof fn === 'function') fn();
+    });
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    /* =====================================================================
+       FUNCIONES DEL ADMINISTRADOR (SECCIONES, PRODUCTOS, USUARIOS, PREMIOS)
+       ===================================================================== */
+    function renderAdminAll() {
+      if (!isAdmin()) return;
+      renderAdminOrders();
+      renderAdminSectionsAndProducts();
+      renderAdminUsers();
+      renderAdminRewards();
+      renderAdminLogs();
+      renderAdminAdmins();
+    }
+
+    /* =====================================================================
+       PEDIDOS: PENDIENTES -> ENTREGADO (SUMA PUNTOS) / CANCELADO
+       ===================================================================== */
+    function setOrderFilter(f) {
+      orderFilter = f;
+      renderAdminOrders();
+    }
+
+    function fmtDate(iso) {
+      try { return new Date(iso).toLocaleString('es-GT'); } catch (e) { return iso || ''; }
+    }
+
+    function renderAdminOrders() {
+      if (!isAdmin()) return;
+      const orders = state.orders || [];
+      const pendingCount = orders.filter(o => o.status === 'pending').length;
+      const tabBtn = document.getElementById('btnSubOrders');
+      tabBtn.innerHTML = '📦 Pedidos' + (pendingCount ? `<span class="count-pill">${pendingCount}</span>` : '');
+
+      const filters = [['pending', '⏳ Pendientes'], ['delivered', '✅ Entregados'], ['cancelled', '❌ Cancelados'], ['all', '📋 Todos']];
+      document.getElementById('orderFilterBar').innerHTML = filters.map(([k, label]) =>
+        `<button class="btn-3d ${orderFilter === k ? 'btn-navy' : 'btn-light'} btn-sm" onclick="setOrderFilter('${k}')">${label}</button>`
+      ).join('');
+
+      const list = document.getElementById('adminOrdersList');
+      const shown = orders.filter(o => orderFilter === 'all' || o.status === orderFilter);
+      if (shown.length === 0) {
+        list.innerHTML = `<p style="color:var(--text-muted); font-weight:600;">No hay pedidos en esta lista.</p>`;
+        return;
+      }
+      const stLabel = { pending: '⏳ PENDIENTE', delivered: '✅ ENTREGADO', cancelled: '❌ CANCELADO' };
+      const stClass = { pending: 'st-pending', delivered: 'st-delivered', cancelled: 'st-cancelled' };
+
+      list.innerHTML = shown.map(o => {
+        const idE = escapeHTML(o.id);
+        const client = o.phone ? state.users[o.phone] : null;
+        const items = o.items.map(i => i.price === 0
+          ? `<li>${escapeHTML(i.name)} <b>(GRATIS)</b></li>`
+          : `<li>${i.qty}x ${escapeHTML(i.name)} — Q${(i.price * i.qty).toFixed(2)}</li>`).join('');
+
+        let phoneInfo;
+        if (client) phoneInfo = `📱 <b>${escapeHTML(o.phone)}</b> (cliente registrado: ${escapeHTML(client.name)})`;
+        else if (o.phone) phoneInfo = `📱 <b>${escapeHTML(o.phone)}</b> <span style="color:var(--red-main);">(no registrado)</span>`;
+        else phoneInfo = `📱 <span style="color:var(--red-main);">Sin teléfono (visitante)</span>`;
+
+        let actions = '';
+        if (o.status === 'pending') {
+          const assign = !client ? `
+            <div style="display:flex; gap:0.45rem; flex-wrap:wrap; width:100%; margin-bottom:0.5rem;">
+              <input type="tel" id="assignPhone_${idE}" class="big-input" style="flex:1; min-width:170px;" placeholder="Teléfono del cliente para dar puntos" value="${escapeHTML(o.phone || '')}" />
+              <button class="btn-3d btn-light btn-sm" onclick="assignOrderPhone('${idE}')">📱 Asignar cliente</button>
+            </div>` : '';
+          actions = `${assign}
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <button class="btn-3d btn-wa" onclick="confirmDeliverOrder('${idE}')">✅ Ya pasó / Entregado (sumar puntos)</button>
+              <button class="btn-3d btn-red btn-sm" onclick="confirmCancelOrder('${idE}')">❌ Cancelar</button>
+            </div>`;
+        } else if (o.status === 'delivered') {
+          actions = `<div style="font-weight:700; color:#14532D;">
+              ${o.awarded ? `⭐ +${o.points} pts acreditados a ${escapeHTML(o.phone)}` : '⚠️ Entregado sin acreditar puntos (cliente sin registrar)'}
+              <br/><span style="color:var(--text-muted); font-size:0.9rem;">${escapeHTML(fmtDate(o.deliveredAt))} • confirmó: ${escapeHTML(o.deliveredBy || '')}</span>
+            </div>
+            <div style="margin-top:0.5rem;"><button class="btn-3d btn-light btn-sm" onclick="confirmDeleteOrder('${idE}')">🗑️ Borrar registro</button></div>`;
+        } else {
+          actions = `<div style="color:var(--text-muted); font-size:0.9rem; font-weight:700;">Cancelado por ${escapeHTML(o.cancelledBy || '')} • ${escapeHTML(fmtDate(o.cancelledAt))}</div>
+            <div style="margin-top:0.5rem;"><button class="btn-3d btn-light btn-sm" onclick="confirmDeleteOrder('${idE}')">🗑️ Borrar registro</button></div>`;
+        }
+
+        return `
+          <div class="order-card ${o.status}">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+              <strong style="font-size:1.1rem;">🔖 ${idE}</strong>
+              <span class="badge-status ${stClass[o.status]}">${stLabel[o.status]}</span>
+            </div>
+            <div style="font-size:0.9rem; color:var(--text-muted); margin:0.25rem 0 0.5rem;">${escapeHTML(fmtDate(o.createdAt))}</div>
+            <div style="font-weight:700;">👤 ${escapeHTML(o.customerName)} • ${phoneInfo}</div>
+            <div style="font-weight:700;">🚚 ${escapeHTML(o.delivery)}${o.address ? ' — 📍 ' + escapeHTML(o.address) : ''}</div>
+            <ul style="margin:0.5rem 0; padding-left:1.2rem;">${items}</ul>
+            <div style="font-weight:900; margin-bottom:0.65rem;">💰 Q${Number(o.total).toFixed(2)} • ⭐ +${o.points} pts al entregar</div>
+            ${actions}
+          </div>`;
+      }).join('');
+    }
+
+    function assignOrderPhone(id) {
+      if (!isAdmin()) return;
+      const o = state.orders.find(x => x.id === id);
+      if (!o) return;
+      const input = document.getElementById('assignPhone_' + id);
+      const phone = cleanPhone(input ? input.value : '');
+      if (phone.length < 6) { showToast('⚠️ Escribe un teléfono válido (mínimo 6 dígitos)'); return; }
+      if (!state.users[phone]) {
+        state.users[phone] = { name: o.customerName, phone, points: 0, role: 'client' };
+        showToast(`✅ Cliente "${o.customerName}" registrado con el ${phone}`);
+      }
+      o.phone = phone;
+      saveState();
+      renderAdminOrders();
+      renderAdminUsers();
+    }
+
+    function confirmDeliverOrder(id) {
+      if (!isAdmin()) return;
+      const o = state.orders.find(x => x.id === id);
+      if (!o || o.status !== 'pending') return;
+      const client = o.phone ? state.users[o.phone] : null;
+      const msg = client
+        ? `¿El cliente ${o.customerName} ya pasó por el pedido ${o.id}? Se sumarán +${o.points} puntos a su cuenta (${o.phone}).`
+        : `El pedido ${o.id} no tiene un cliente registrado, así que NO se sumarán puntos. ¿Marcarlo como entregado de todos modos? (Cancela y usa "Asignar cliente" si quieres darle puntos.)`;
+      openConfirmModal('Confirmar Entrega', msg, () => {
+        const order = state.orders.find(x => x.id === id);
+        if (!order || order.status !== 'pending') return;
+        const c = order.phone ? state.users[order.phone] : null;
+        if (c) {
+          c.points = Number(c.points) + Number(order.points);
+          order.awarded = true;
+        }
+        order.status = 'delivered';
+        order.deliveredAt = new Date().toISOString();
+        order.deliveredBy = currentAdmin().username;
+        saveState();
+        updateUserUI();
+        renderAdminOrders();
+        renderAdminUsers();
+        showToast(c ? `⭐ +${order.points} pts sumados a ${c.name}` : '✅ Pedido marcado como entregado');
+      });
+    }
+
+    function confirmCancelOrder(id) {
+      if (!isAdmin()) return;
+      const o = state.orders.find(x => x.id === id);
+      if (!o || o.status !== 'pending') return;
+      openConfirmModal('Cancelar Pedido', `¿Cancelar el pedido ${o.id} de ${o.customerName}? No se darán puntos.`, () => {
+        o.status = 'cancelled';
+        o.cancelledAt = new Date().toISOString();
+        o.cancelledBy = currentAdmin().username;
+        saveState();
+        renderAdminOrders();
+        showToast('❌ Pedido cancelado');
+      });
+    }
+
+    function confirmDeleteOrder(id) {
+      if (!isAdmin()) return;
+      const o = state.orders.find(x => x.id === id);
+      if (!o) return;
+      openConfirmModal('Borrar Registro', `¿Borrar el registro del pedido ${o.id}? Los puntos ya acreditados NO se descuentan.`, () => {
+        state.orders = state.orders.filter(x => x.id !== id);
+        saveState();
+        renderAdminOrders();
+        showToast('🗑️ Registro borrado');
+      });
+    }
+
+    function importOrderFromText() {
+      if (!isAdmin()) return;
+      const txt = document.getElementById('importOrderText').value;
+      const m = txt.match(/\[\[ADONAI:([A-Za-z0-9_-]+)\]\]/);
+      if (!m) { showToast('⚠️ No encontré el código [[ADONAI:...]] en el mensaje. Pega el mensaje completo de WhatsApp.'); return; }
+      let d;
+      try { d = b64urlDecode(m[1]); } catch (e) { showToast('⚠️ El código del pedido está dañado o incompleto'); return; }
+      if (!d || typeof d.id !== 'string' || !Array.isArray(d.t) || d.t.length === 0 || d.t.length > 60) { showToast('⚠️ Código de pedido inválido'); return; }
+      if (state.orders.some(o => o.id === d.id)) { showToast('ℹ️ Ese pedido ya estaba registrado'); return; }
+      const items = d.t.map(r => ({
+        name: String(r[0] || '').slice(0, 120),
+        price: Math.max(0, Number(r[1]) || 0),
+        points: Math.max(0, Number(r[2]) || 0),
+        qty: Math.min(999, Math.max(1, parseInt(r[3], 10) || 1))
+      }));
+      state.orders.unshift({
+        id: String(d.id).replace(/[^A-Za-z0-9-]/g, '').slice(0, 20),
+        createdAt: d.ts && !isNaN(Date.parse(d.ts)) ? d.ts : new Date().toISOString(),
+        customerName: String(d.n || 'Cliente').slice(0, 80),
+        phone: cleanPhone(d.p),
+        delivery: String(d.d || '').slice(0, 60),
+        address: String(d.a || '').slice(0, 200),
+        items,
+        total: items.reduce((a, i) => a + i.price * i.qty, 0),
+        points: items.reduce((a, i) => a + i.points * i.qty, 0),
+        status: 'pending',
+        awarded: false
+      });
+      document.getElementById('importOrderText').value = '';
+      saveState();
+      orderFilter = 'pending';
+      renderAdminOrders();
+      showToast('📥 Pedido importado como PENDIENTE');
+    }
+
+    /* =====================================================================
+       ADMINISTRADORES (AGREGAR, RESTABLECER CONTRASEÑA, ELIMINAR)
+       ===================================================================== */
+    function renderAdminAdmins() {
+      if (!isAdmin()) return;
+      const me = currentAdmin();
+      document.getElementById('adminPassWarn').classList.toggle('hidden', !me.mustChange);
+      document.getElementById('adminAdminsList').innerHTML = state.admins.map(a => {
+        const uE = escapeHTML(a.username);
+        const isMe = a.username === me.username;
+        return `
+          <div class="list-row">
+            <div>
+              <strong>${a.owner ? '👑' : '🛡️'} ${escapeHTML(a.name)} ${isMe ? '<span style="color:var(--green-wa);">(tú)</span>' : ''}</strong>
+              <div style="font-size:0.9rem; color:var(--text-muted);">
+                Usuario: <b>${uE}</b>${a.owner ? ' • Administrador principal' : ''}${a.createdBy && !a.owner ? ' • creado por ' + escapeHTML(a.createdBy) : ''}
+              </div>
+            </div>
+            <div style="display:flex; gap:0.45rem; flex-wrap:wrap;">
+              ${isMe ? `<button class="btn-3d btn-navy btn-sm" onclick="openChangePassModal(false)">🔐 Cambiar mi contraseña</button>` : ''}
+              ${(!isMe && me.owner) ? `<button class="btn-3d btn-light btn-sm" onclick="resetAdminPassword('${uE}')">🔄 Nueva contraseña</button>` : ''}
+              ${(!isMe && me.owner && !a.owner) ? `<button class="btn-3d btn-red btn-sm" onclick="confirmDeleteAdmin('${uE}')">🗑️ Eliminar</button>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function addAdmin() {
+      if (!isAdmin()) return;
+      const username = document.getElementById('newAdminUser').value.trim().toLowerCase();
+      const name = document.getElementById('newAdminName').value.trim();
+      const pass = document.getElementById('newAdminPass').value;
+      if (!/^[a-z0-9._-]{3,20}$/.test(username)) { showToast('⚠️ Usuario: 3 a 20 letras minúsculas, números, punto, guion'); return; }
+      if (!name) { showToast('⚠️ Escribe el nombre de la persona'); return; }
+      if (pass.length < 6) { showToast('⚠️ La contraseña debe tener al menos 6 caracteres'); return; }
+      if (state.admins.some(a => a.username === username)) { showToast('⚠️ Ese usuario ya existe'); return; }
+      const adm = makeAdmin(username, name, pass, true, false);
+      adm.createdBy = currentAdmin().username;
+      state.admins.push(adm);
+      ['newAdminUser', 'newAdminName', 'newAdminPass'].forEach(id => document.getElementById(id).value = '');
+      saveState();
+      renderAdminAdmins();
+      showToast(`✅ Administrador "${name}" creado. Deberá cambiar su contraseña al entrar.`);
+    }
+
+    function resetAdminPassword(username) {
+      const me = currentAdmin();
+      if (!me || !me.owner) return;
+      const a = state.admins.find(x => x.username === username);
+      if (!a) return;
+      const np = prompt(`Escribe una contraseña temporal para ${a.name} (mínimo 6 caracteres). Deberá cambiarla al entrar:`);
+      if (np === null) return;
+      if (np.length < 6) { showToast('⚠️ La contraseña debe tener al menos 6 caracteres'); return; }
+      a.salt = randomSalt();
+      a.hash = hashPassword(a.salt, np);
+      a.mustChange = true;
+      saveState();
+      showToast(`🔐 Contraseña temporal asignada a ${a.name}`);
+    }
+
+    function confirmDeleteAdmin(username) {
+      const me = currentAdmin();
+      if (!me || !me.owner) return;
+      const a = state.admins.find(x => x.username === username);
+      if (!a || a.owner || a.username === me.username) return;
+      openConfirmModal('Eliminar Administrador', `¿Eliminar el acceso de administrador de "${a.name}" (${a.username})?`, () => {
+        state.admins = state.admins.filter(x => x.username !== username);
+        saveState();
+        renderAdminAdmins();
+        showToast('🗑️ Administrador eliminado');
+      });
+    }
+
+    function renderAdminSectionsAndProducts() {
+      // Llenar selector de secciones al crear producto
+      const sel = document.getElementById('prodSection');
+      sel.innerHTML = state.sections.map(s => `<option value="${escapeHTML(s)}">${escapeHTML(s)}</option>`).join('');
+
+      // Lista de secciones con opción de eliminar
+      const secList = document.getElementById('adminSectionsList');
+      secList.innerHTML = state.sections.map((s, idx) => `
+        <span style="background:#FFF; border:2px solid var(--navy-main); border-radius:999px; padding:0.35rem 0.85rem; font-weight:800; display:inline-flex; align-items:center; gap:0.5rem;">
+          ${escapeHTML(s)}
+          <button onclick="confirmDeleteSection(${idx})" style="background:var(--red-main); color:#FFF; border:none; border-radius:50%; width:26px; height:26px; cursor:pointer; font-weight:900;">✕</button>
+        </span>
+      `).join('');
+
+      // Lista de productos
+      document.getElementById('adminProdCount').textContent = state.products.length;
+      const pList = document.getElementById('adminProductsList');
+      pList.innerHTML = state.products.map(p => `
+        <div class="list-row">
+          <div>
+            <strong>${escapeHTML(p.icon)} ${escapeHTML(p.name)}</strong>
+            <div style="font-size:0.9rem; color:var(--text-muted);">
+              Sección: <b>${escapeHTML(p.section)}</b> • Precio: <b>Q${Number(p.price).toFixed(2)}</b> • Puntos: <b>+${p.points} pts</b>
+            </div>
+          </div>
+          <button class="btn-3d btn-red btn-sm" onclick="confirmDeleteProduct('${escapeHTML(p.id)}')">🗑️ Eliminar</button>
+        </div>
+      `).join('');
+    }
+
+    function addSection() {
+      if (!isAdmin()) return;
+      const name = document.getElementById('newSectionName').value.trim();
+      if (!name) {
+        showToast('⚠️ Escribe un nombre para la sección');
+        return;
+      }
+      if (state.sections.some(s => s.toLowerCase() === name.toLowerCase())) {
+        showToast('⚠️ Esa sección ya existe');
+        return;
+      }
+      state.sections.push(name);
+      document.getElementById('newSectionName').value = '';
+      saveState();
+      renderSectionsPills();
+      renderAdminSectionsAndProducts();
+      showToast(`✅ Sección "${name}" creada`);
+    }
+
+    function confirmDeleteSection(idx) {
+      if (!isAdmin()) return;
+      const secName = state.sections[idx];
+      openConfirmModal(
+        'Eliminar Sección',
+        `¿Seguro que deseas eliminar la sección "${secName}"?`,
+        () => {
+          state.sections.splice(idx, 1);
+          if (selectedSection === secName) selectedSection = 'Todas';
+          saveState();
+          renderSectionsPills();
+          renderProducts();
+          renderAdminSectionsAndProducts();
+          showToast(`🗑️ Sección "${secName}" eliminada`);
+        }
+      );
+    }
+
+    function addProduct() {
+      if (!isAdmin()) return;
+      const name = document.getElementById('prodName').value.trim();
+      const section = document.getElementById('prodSection').value;
+      const price = parseFloat(document.getElementById('prodPrice').value);
+      const points = parseInt(document.getElementById('prodPoints').value, 10);
+      const unit = document.getElementById('prodUnit').value.trim() || 'Por unidad';
+      const icon = document.getElementById('prodIcon').value.trim() || '🍗';
+
+      if (!name || !section || isNaN(price) || price < 0 || isNaN(points) || points < 0) {
+        showToast('⚠️ Completa nombre, sección, precio y puntos válidos');
+        return;
+      }
+
+      state.products.push({
+        id: 'prod_' + Date.now(),
+        name,
+        section,
+        price,
+        points,
+        unit,
+        icon
+      });
+
+      document.getElementById('prodName').value = '';
+      document.getElementById('prodPrice').value = '';
+      document.getElementById('prodPoints').value = '';
+      saveState();
+      renderProducts();
+      renderAdminSectionsAndProducts();
+      showToast(`✅ Producto "${name}" agregado`);
+    }
+
+    function confirmDeleteProduct(prodId) {
+      if (!isAdmin()) return;
+      const p = state.products.find(x => x.id === prodId);
+      if (!p) return;
+      openConfirmModal(
+        'Eliminar Producto',
+        `¿Estás seguro de eliminar "${p.name}" del catálogo?`,
+        () => {
+          state.products = state.products.filter(x => x.id !== prodId);
+          saveState();
+          renderProducts();
+          renderAdminSectionsAndProducts();
+          showToast(`🗑️ Producto "${p.name}" eliminado`);
+        }
+      );
+    }
+
+    /* GESTIÓN DE USUARIOS (AGREGAR, MODIFICAR NÚMERO/PUNTOS Y ELIMINAR CON CONFIRMACIÓN) */
+    function renderAdminUsers() {
+      const list = document.getElementById('adminUsersList');
+      const usersArr = Object.values(state.users);
+      list.innerHTML = usersArr.map(u => `
+        <div class="list-row">
+          <div>
+            <strong>👤 ${escapeHTML(u.name)}</strong>
+            <div style="font-size:0.95rem; color:var(--text-muted);">
+              📱 Teléfono: <b>${escapeHTML(u.phone)}</b> • ⭐ Puntos: <b style="color:var(--red-main);">${u.points} pts</b>
+            </div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:0.45rem;">
+            <button class="btn-3d btn-gold btn-sm" onclick="quickAddPoints('${escapeHTML(u.phone)}', 25)">+25 pts</button>
+            <button class="btn-3d btn-navy btn-sm" onclick="openEditUserModal('${escapeHTML(u.phone)}')">✏️ Modificar / Cambiar Tel.</button>
+            <button class="btn-3d btn-red btn-sm" onclick="confirmDeleteUser('${escapeHTML(u.phone)}')">🗑️ Eliminar</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addUser() {
+      if (!isAdmin()) return;
+      const name = document.getElementById('newUserName').value.trim();
+      const phone = cleanPhone(document.getElementById('newUserPhone').value);
+      const points = parseInt(document.getElementById('newUserPoints').value, 10) || 0;
+
+      if (!name || phone.length < 6) {
+        showToast('⚠️ Escribe nombre y un teléfono válido (mínimo 6 dígitos)');
+        return;
+      }
+      if (state.users[phone]) {
+        showToast('⚠️ Ese número de teléfono ya está registrado');
+        return;
+      }
+
+      state.users[phone] = { name, phone, points, role: 'client' };
+      document.getElementById('newUserName').value = '';
+      document.getElementById('newUserPhone').value = '';
+      document.getElementById('newUserPoints').value = '0';
+      saveState();
+      renderAdminUsers();
+      showToast(`✅ Cliente "${name}" registrado`);
+    }
+
+    function quickAddPoints(phone, pts) {
+      if (!isAdmin() || !state.users[phone]) return;
+      state.users[phone].points += pts;
+      saveState();
+      updateUserUI();
+      renderAdminUsers();
+      showToast(`⭐ +${pts} pts sumados a ${state.users[phone].name}`);
+    }
+
+    function openEditUserModal(phone) {
+      if (!isAdmin()) return;
+      const u = state.users[phone];
+      if (!u) return;
+      document.getElementById('editUserOldPhone').value = u.phone;
+      document.getElementById('editUserName').value = u.name;
+      document.getElementById('editUserNewPhone').value = u.phone;
+      document.getElementById('editUserPoints').value = u.points;
+      document.getElementById('editUserModal').classList.add('open');
+    }
+
+    function saveUserEdit() {
+      if (!isAdmin()) return;
+      const oldPhone = document.getElementById('editUserOldPhone').value;
+      const newName = document.getElementById('editUserName').value.trim();
+      const newPhone = cleanPhone(document.getElementById('editUserNewPhone').value);
+      const newPoints = parseInt(document.getElementById('editUserPoints').value, 10);
+
+      const user = state.users[oldPhone];
+      if (!user) return;
+      if (!newName || newPhone.length < 6 || isNaN(newPoints) || newPoints < 0) {
+        showToast('⚠️ Verifica nombre, teléfono válido y puntos');
+        return;
+      }
+      if (newPhone !== oldPhone && state.users[newPhone]) {
+        showToast('⚠️ El nuevo número ya pertenece a otro cliente');
+        return;
+      }
+      delete state.users[oldPhone];
+      state.users[newPhone] = {
+        ...user,
+        name: newName,
+        phone: newPhone,
+        points: newPoints
+      };
+
+      if (currentUserPhone === oldPhone) {
+        currentUserPhone = newPhone;
+        sessionStorage.setItem('adonai_session_phone', newPhone);
+      }
+
+      saveState();
+      closeModal('editUserModal');
+      updateUserUI();
+      renderAdminUsers();
+      showToast(`✅ Datos actualizados para ${newName} (${newPhone})`);
+    }
+
+    function confirmDeleteUser(phone) {
+      if (!isAdmin()) return;
+      const u = state.users[phone];
+      if (!u) return;
+      openConfirmModal(
+        'Eliminar Cliente',
+        `¿Estás seguro de eliminar a "${u.name}" (Tel: ${u.phone}) con ${u.points} puntos? Esta acción no se puede deshacer.`,
+        () => {
+          delete state.users[phone];
+          saveState();
+          renderAdminUsers();
+          showToast(`🗑️ Cliente "${u.name}" eliminado`);
+        }
+      );
+    }
+
+    /* GESTIÓN DE PREMIOS Y PREMIO GRANDE EN ADMIN */
+    function renderAdminRewards() {
+      const gp = state.grandPrize;
+      document.getElementById('gpTitle').value = gp.title;
+      document.getElementById('gpCost').value = gp.cost;
+      document.getElementById('gpStock').value = gp.stock;
+      document.getElementById('gpIcon').value = gp.icon || '🏆';
+      document.getElementById('gpDesc').value = gp.desc;
+
+      const claimers = gp.claimedBy.length > 0
+        ? gp.claimedBy.map(c => `${escapeHTML(c.name)} (${escapeHTML(c.phone)}) - ${escapeHTML(c.date)}`).join(' | ')
+        : 'Nadie lo ha canjeado todavía.';
+      document.getElementById('gpAdminClaimsInfo').innerHTML = `📋 Canjes actuales del Premio Grande: ${claimers}`;
+
+      const list = document.getElementById('adminRewardsList');
+      list.innerHTML = state.rewards.map(r => {
+        const claimersR = (r.claimedBy || []).map(c => `${escapeHTML(c.name)} (${escapeHTML(c.phone)})`).join(', ');
+        return `
+          <div class="list-row">
+            <div>
+              <strong>${escapeHTML(r.icon)} ${escapeHTML(r.name)}</strong>
+              <div style="font-size:0.9rem; color:var(--text-muted);">
+                Costo: <b>${r.cost} pts</b> • Existencia: <b>${r.stock}</b>
+                ${claimersR ? `<br/><span style="color:var(--red-main);">Canjeado por: ${claimersR}</span>` : ''}
+              </div>
+            </div>
+            <div style="display:flex; gap:0.45rem; flex-wrap:wrap;">
+              <button class="btn-3d btn-light btn-sm" onclick="restockReward('${escapeHTML(r.id)}', 1)">+1 Stock</button>
+              <button class="btn-3d btn-red btn-sm" onclick="confirmDeleteReward('${escapeHTML(r.id)}')">🗑️ Eliminar</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveGrandPrize() {
+      if (!isAdmin()) return;
+      const title = document.getElementById('gpTitle').value.trim();
+      const cost = parseInt(document.getElementById('gpCost').value, 10);
+      const stock = parseInt(document.getElementById('gpStock').value, 10);
+      const icon = document.getElementById('gpIcon').value.trim() || '🏆';
+      const desc = document.getElementById('gpDesc').value.trim();
+
+      if (!title || isNaN(cost) || cost < 1 || isNaN(stock) || stock < 0) {
+        showToast('⚠️ Verifica título, puntos y existencia del Premio Grande');
+        return;
+      }
+
+      state.grandPrize.title = title;
+      state.grandPrize.cost = cost;
+      state.grandPrize.stock = stock;
+      state.grandPrize.icon = icon;
+      state.grandPrize.desc = desc;
+      saveState();
+      renderRewards();
+      renderAdminRewards();
+      showToast('✨ Premio Grande actualizado');
+    }
+
+    function resetGrandPrizeClaims() {
+      if (!isAdmin()) return;
+      openConfirmModal(
+        'Reiniciar Canjes del Premio Grande',
+        '¿Deseas limpiar la lista de quienes canjearon el Premio Grande y dejarlo disponible nuevamente?',
+        () => {
+          state.grandPrize.claimedBy = [];
+          if (state.grandPrize.stock <= 0) state.grandPrize.stock = 1;
+          saveState();
+          renderRewards();
+          renderAdminRewards();
+          showToast('🔄 Premio Grande habilitado nuevamente');
+        }
+      );
+    }
+
+    function addReward() {
+      if (!isAdmin()) return;
+      const name = document.getElementById('rewName').value.trim();
+      const cost = parseInt(document.getElementById('rewCost').value, 10);
+      const stock = parseInt(document.getElementById('rewStock').value, 10);
+      const icon = document.getElementById('rewIcon').value.trim() || '🎁';
+
+      if (!name || isNaN(cost) || cost < 1 || isNaN(stock) || stock < 0) {
+        showToast('⚠️ Completa nombre, costo en puntos y existencia');
+        return;
+      }
+
+      state.rewards.push({
+        id: 'rew_' + Date.now(),
+        name,
+        cost,
+        stock,
+        icon,
+        claimedBy: []
+      });
+
+      document.getElementById('rewName').value = '';
+      document.getElementById('rewCost').value = '';
+      saveState();
+      renderRewards();
+      renderAdminRewards();
+      showToast(`🎁 Premio "${name}" agregado`);
+    }
+
+    function restockReward(id, amount) {
+      if (!isAdmin()) return;
+      const r = state.rewards.find(x => x.id === id);
+      if (!r) return;
+      r.stock = Number(r.stock) + amount;
+      saveState();
+      renderRewards();
+      renderAdminRewards();
+      showToast(`📦 Existencia actualizada: ${r.name} (${r.stock})`);
+    }
+
+    function confirmDeleteReward(id) {
+      if (!isAdmin()) return;
+      const r = state.rewards.find(x => x.id === id);
+      if (!r) return;
+      openConfirmModal(
+        'Eliminar Premio',
+        `¿Estás seguro de eliminar el premio "${r.name}"?`,
+        () => {
+          state.rewards = state.rewards.filter(x => x.id !== id);
+          saveState();
+          renderRewards();
+          renderAdminRewards();
+          showToast(`🗑️ Premio "${r.name}" eliminado`);
+        }
+      );
+    }
+
+    function renderAdminLogs() {
+      const list = document.getElementById('adminLogsList');
+      if (state.claimLogs.length === 0) {
+        list.innerHTML = `<p style="color:var(--text-muted); font-weight:600;">Aún no hay canjes registrados.</p>`;
+        return;
+      }
+      list.innerHTML = state.claimLogs.map(l => `
+        <div class="list-row">
+          <div>
+            <strong>${escapeHTML(l.prizeName)}</strong>
+            <div style="font-size:0.9rem; color:var(--text-muted);">
+              Canjeado por: <b>${escapeHTML(l.userName)}</b> (Tel: ${escapeHTML(l.userPhone)}) • -${l.cost} pts • ${escapeHTML(l.date)}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function confirmClearLogs() {
+      if (!isAdmin()) return;
+      openConfirmModal('Limpiar Historial', '¿Deseas borrar el registro histórico de canjes?', () => {
+        state.claimLogs = [];
+        saveState();
+        renderAdminLogs();
+        showToast('🗑️ Historial limpiado');
+      });
+    }
+
+    function renderAll() {
+      renderSectionsPills();
+      renderProducts();
+      renderRewards();
+      if (isAdmin()) renderAdminAll();
+    }
+
+    /* =====================================================================
+       ARRANQUE INICIAL DE LA APLICACIÓN
+       ===================================================================== */
+    applyFontSize();
+    updateUserUI();
+    updateCartBar();
+    renderAll();
+    if (isAdmin()) switchAdminSubtab('orders');
+    if (currentAdmin() && currentAdmin().mustChange) openChangePassModal(true);
+
+    // Mostrar el Premio Grande automáticamente al entrar
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        openGrandPrizeModal();
+      }, 350);
+    });
+  </script>
+</body>
+</html>
